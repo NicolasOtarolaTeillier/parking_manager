@@ -55,8 +55,13 @@ public boolean isSingleton() {
 		return pcBA;
 	}
 public static RemoteObject __c = RemoteObject.declareNull("anywheresoftware.b4a.keywords.Common");
+public static RemoteObject _xui = RemoteObject.declareNull("anywheresoftware.b4a.objects.B4XViewWrapper.XUI");
+public static RemoteObject _db = RemoteObject.declareNull("anywheresoftware.b4a.sql.SQL");
 public static RemoteObject _tabhost1 = RemoteObject.declareNull("anywheresoftware.b4a.objects.TabHostWrapper");
+public static RemoteObject _name_db = RemoteObject.createImmutable("");
+public static RemoteObject _tables_db = RemoteObject.declareNull("anywheresoftware.b4a.objects.collections.List");
+public static RemoteObject _table_cars = RemoteObject.createImmutable("");
   public Object[] GetGlobals() {
-		return new Object[] {"Activity",main.mostCurrent._activity,"TabHost1",main.mostCurrent._tabhost1};
+		return new Object[] {"Activity",main.mostCurrent._activity,"DB",main._db,"name_db",main.mostCurrent._name_db,"TabHost1",main.mostCurrent._tabhost1,"table_cars",main.mostCurrent._table_cars,"tables_db",main.mostCurrent._tables_db,"xui",main._xui};
 }
 }

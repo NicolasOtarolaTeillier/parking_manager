@@ -376,7 +376,12 @@ public static void killProgram() {
 
 }
 public anywheresoftware.b4a.keywords.Common __c = null;
+public static anywheresoftware.b4a.objects.B4XViewWrapper.XUI _xui = null;
+public static anywheresoftware.b4a.sql.SQL _db = null;
 public anywheresoftware.b4a.objects.TabHostWrapper _tabhost1 = null;
+public static String _name_db = "";
+public anywheresoftware.b4a.objects.collections.List _tables_db = null;
+public static String _table_cars = "";
 public static String  _activity_create(boolean _firsttime) throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_create", false))
@@ -386,20 +391,83 @@ RDebugUtils.currentLine=131072;
 RDebugUtils.currentLine=131073;
  //BA.debugLineNum = 131073;BA.debugLine="Activity.LoadLayout(\"Main\")";
 mostCurrent._activity.LoadLayout("Main",mostCurrent.activityBA);
-RDebugUtils.currentLine=131074;
- //BA.debugLineNum = 131074;BA.debugLine="TabHost1.AddTab(\"cliente\",\"page_clientes.bal\")";
-mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"cliente","page_clientes.bal");
-RDebugUtils.currentLine=131075;
- //BA.debugLineNum = 131075;BA.debugLine="TabHost1.AddTab(\"pagos\",\"page_pagos.bal\")";
-mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"pagos","page_pagos.bal");
 RDebugUtils.currentLine=131076;
- //BA.debugLineNum = 131076;BA.debugLine="TabHost1.AddTab(\"fecha\",\"page_fecha.bal\")";
-mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"fecha","page_fecha.bal");
+ //BA.debugLineNum = 131076;BA.debugLine="TabHost1.AddTab(\"cliente\",\"page_clientes.bal\")";
+mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"cliente","page_clientes.bal");
 RDebugUtils.currentLine=131077;
- //BA.debugLineNum = 131077;BA.debugLine="TabHost1.AddTab(\"info\",\"page_info.bal\")";
-mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"info","page_info.bal");
+ //BA.debugLineNum = 131077;BA.debugLine="TabHost1.AddTab(\"pagos\",\"page_pagos.bal\")";
+mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"pagos","page_pagos.bal");
 RDebugUtils.currentLine=131078;
- //BA.debugLineNum = 131078;BA.debugLine="End Sub";
+ //BA.debugLineNum = 131078;BA.debugLine="TabHost1.AddTab(\"fecha\",\"page_fecha.bal\")";
+mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"fecha","page_fecha.bal");
+RDebugUtils.currentLine=131079;
+ //BA.debugLineNum = 131079;BA.debugLine="TabHost1.AddTab(\"info\",\"page_info.bal\")";
+mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"info","page_info.bal");
+RDebugUtils.currentLine=131082;
+ //BA.debugLineNum = 131082;BA.debugLine="name_db = \"parking_manager.db\"";
+mostCurrent._name_db = "parking_manager.db";
+RDebugUtils.currentLine=131085;
+ //BA.debugLineNum = 131085;BA.debugLine="tables_db.Initialize";
+mostCurrent._tables_db.Initialize();
+RDebugUtils.currentLine=131086;
+ //BA.debugLineNum = 131086;BA.debugLine="tables_db.AddAll(Array As String (\"cars\"))";
+mostCurrent._tables_db.AddAll(anywheresoftware.b4a.keywords.Common.ArrayToList(new String[]{"cars"}));
+RDebugUtils.currentLine=131087;
+ //BA.debugLineNum = 131087;BA.debugLine="table_cars = \"(id INTEGER PRIMARY KEY AUTOINCREME";
+mostCurrent._table_cars = "(id INTEGER PRIMARY KEY AUTOINCREMENT, patente TEXT, fecha TEXT, hora TEXT)";
+RDebugUtils.currentLine=131088;
+ //BA.debugLineNum = 131088;BA.debugLine="create_db(name_db,tables_db.Get(0), table_cars)";
+_create_db(mostCurrent._name_db,BA.ObjectToString(mostCurrent._tables_db.Get((int) (0))),mostCurrent._table_cars);
+RDebugUtils.currentLine=131089;
+ //BA.debugLineNum = 131089;BA.debugLine="End Sub";
+return "";
+}
+public static String  _create_db(String _name,String _table,String _col) throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "create_db", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "create_db", new Object[] {_name,_table,_col}));}
+RDebugUtils.currentLine=983040;
+ //BA.debugLineNum = 983040;BA.debugLine="Sub create_db (name As String, table As String, co";
+RDebugUtils.currentLine=983041;
+ //BA.debugLineNum = 983041;BA.debugLine="Log(name)";
+anywheresoftware.b4a.keywords.Common.LogImpl("5983041",_name,0);
+RDebugUtils.currentLine=983042;
+ //BA.debugLineNum = 983042;BA.debugLine="Log(table)";
+anywheresoftware.b4a.keywords.Common.LogImpl("5983042",_table,0);
+RDebugUtils.currentLine=983043;
+ //BA.debugLineNum = 983043;BA.debugLine="Log(col)";
+anywheresoftware.b4a.keywords.Common.LogImpl("5983043",_col,0);
+RDebugUtils.currentLine=983044;
+ //BA.debugLineNum = 983044;BA.debugLine="DB.Initialize(File.DirInternal,name,True)";
+_db.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirInternal(),_name,anywheresoftware.b4a.keywords.Common.True);
+RDebugUtils.currentLine=983045;
+ //BA.debugLineNum = 983045;BA.debugLine="DB.BeginTransaction";
+_db.BeginTransaction();
+RDebugUtils.currentLine=983046;
+ //BA.debugLineNum = 983046;BA.debugLine="Try";
+try {RDebugUtils.currentLine=983047;
+ //BA.debugLineNum = 983047;BA.debugLine="DB.ExecNonQuery(\"CREATE TABLE IF NOT EXISTS \"&ta";
+_db.ExecNonQuery("CREATE TABLE IF NOT EXISTS "+_table+" "+_col);
+RDebugUtils.currentLine=983048;
+ //BA.debugLineNum = 983048;BA.debugLine="DB.TransactionSuccessful";
+_db.TransactionSuccessful();
+RDebugUtils.currentLine=983049;
+ //BA.debugLineNum = 983049;BA.debugLine="ToastMessageShow(\"Tabla: \"&table&\", creada\",Fals";
+anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Tabla: "+_table+", creada"),anywheresoftware.b4a.keywords.Common.False);
+ } 
+       catch (Exception e11) {
+			processBA.setLastException(e11);RDebugUtils.currentLine=983051;
+ //BA.debugLineNum = 983051;BA.debugLine="ToastMessageShow(\"Error en la creación de la Tab";
+anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Error en la creación de la Tabla: "+_table),anywheresoftware.b4a.keywords.Common.False);
+RDebugUtils.currentLine=983052;
+ //BA.debugLineNum = 983052;BA.debugLine="Log(\"ERROR en la creación de la tabla:\"&table&\",";
+anywheresoftware.b4a.keywords.Common.LogImpl("5983052","ERROR en la creación de la tabla:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+ };
+RDebugUtils.currentLine=983054;
+ //BA.debugLineNum = 983054;BA.debugLine="DB.EndTransaction";
+_db.EndTransaction();
+RDebugUtils.currentLine=983055;
+ //BA.debugLineNum = 983055;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
