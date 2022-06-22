@@ -1,6 +1,6 @@
 ﻿Build1=EjemploSQLite,b4a.EjemploSQLite,Full
 File1=Main.bal
-File2=page_customers.bal
+File2=page_customer.bal
 File3=page_info.bal
 File4=page_parked.bal
 File5=page_pay.bal
@@ -54,9 +54,9 @@ Sub Activity_Create(FirstTime As Boolean)
 	Activity.LoadLayout("Main")
 	
 	' tabhost
-	TabHost1.AddTab("Customers","page_customers.bal")
+	TabHost1.AddTab("Customer","page_customer.bal")
 	TabHost1.AddTab("Parked","page_parked.bal")
-	TabHost1.AddTab("Pay","page_pay.bal")
+	'TabHost1.AddTab("Pay","page_pay.bal")
 	TabHost1.AddTab("Info","page_info.bal")
 	
 	' database

@@ -4,11 +4,11 @@ import anywheresoftware.b4a.objects.ImageViewWrapper;
 import anywheresoftware.b4a.BA;
 
 
-public class LS_page_customers{
+public class LS_page_customer{
 
 public static void LS_general(java.util.LinkedHashMap<String, anywheresoftware.b4a.keywords.LayoutBuilder.ViewWrapperAndAnchor> views, int width, int height, float scale) {
 anywheresoftware.b4a.keywords.LayoutBuilder.setScaleRate(0.3);
-//BA.debugLineNum = 2;BA.debugLine="AutoScaleAll"[page_customers/General script]
+//BA.debugLineNum = 2;BA.debugLine="AutoScaleAll"[page_customer/General script]
 anywheresoftware.b4a.keywords.LayoutBuilder.scaleAll(views);
 
 }

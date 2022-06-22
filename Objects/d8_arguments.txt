@@ -18,7 +18,7 @@ C:\Users\TIC\Desktop\repos\parking_manager\Objects\dexed\b4a\EjemploSQLite\main.
 C:\Users\TIC\Desktop\repos\parking_manager\Objects\dexed\b4a\EjemploSQLite\R$drawable.dex
 C:\Users\TIC\Desktop\repos\parking_manager\Objects\dexed\b4a\EjemploSQLite\R.dex
 C:\Users\TIC\Desktop\repos\parking_manager\Objects\dexed\b4a\EjemploSQLite\designerscripts\LS_main.dex
-C:\Users\TIC\Desktop\repos\parking_manager\Objects\dexed\b4a\EjemploSQLite\designerscripts\LS_page_customers.dex
+C:\Users\TIC\Desktop\repos\parking_manager\Objects\dexed\b4a\EjemploSQLite\designerscripts\LS_page_customer.dex
 C:\Users\TIC\Desktop\repos\parking_manager\Objects\dexed\b4a\EjemploSQLite\designerscripts\LS_page_info.dex
 C:\Users\TIC\Desktop\repos\parking_manager\Objects\dexed\b4a\EjemploSQLite\designerscripts\LS_page_parked.dex
 C:\Users\TIC\Desktop\repos\parking_manager\Objects\dexed\b4a\EjemploSQLite\designerscripts\LS_page_pay.dex
