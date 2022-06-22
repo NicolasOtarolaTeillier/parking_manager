@@ -392,17 +392,17 @@ RDebugUtils.currentLine=131073;
  //BA.debugLineNum = 131073;BA.debugLine="Activity.LoadLayout(\"Main\")";
 mostCurrent._activity.LoadLayout("Main",mostCurrent.activityBA);
 RDebugUtils.currentLine=131076;
- //BA.debugLineNum = 131076;BA.debugLine="TabHost1.AddTab(\"cliente\",\"page_clientes.bal\")";
-mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"cliente","page_clientes.bal");
+ //BA.debugLineNum = 131076;BA.debugLine="TabHost1.AddTab(\"Customers\",\"page_customers.bal\")";
+mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"Customers","page_customers.bal");
 RDebugUtils.currentLine=131077;
- //BA.debugLineNum = 131077;BA.debugLine="TabHost1.AddTab(\"pagos\",\"page_pagos.bal\")";
-mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"pagos","page_pagos.bal");
+ //BA.debugLineNum = 131077;BA.debugLine="TabHost1.AddTab(\"Parked\",\"page_parked.bal\")";
+mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"Parked","page_parked.bal");
 RDebugUtils.currentLine=131078;
- //BA.debugLineNum = 131078;BA.debugLine="TabHost1.AddTab(\"fecha\",\"page_fecha.bal\")";
-mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"fecha","page_fecha.bal");
+ //BA.debugLineNum = 131078;BA.debugLine="TabHost1.AddTab(\"Pay\",\"page_pay.bal\")";
+mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"Pay","page_pay.bal");
 RDebugUtils.currentLine=131079;
- //BA.debugLineNum = 131079;BA.debugLine="TabHost1.AddTab(\"info\",\"page_info.bal\")";
-mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"info","page_info.bal");
+ //BA.debugLineNum = 131079;BA.debugLine="TabHost1.AddTab(\"Info\",\"page_info.bal\")";
+mostCurrent._tabhost1.AddTab(mostCurrent.activityBA,"Info","page_info.bal");
 RDebugUtils.currentLine=131082;
  //BA.debugLineNum = 131082;BA.debugLine="name_db = \"parking_manager.db\"";
 mostCurrent._name_db = "parking_manager.db";
@@ -426,66 +426,66 @@ public static String  _create_db(String _name,String _table,String _col) throws 
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "create_db", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "create_db", new Object[] {_name,_table,_col}));}
-RDebugUtils.currentLine=983040;
- //BA.debugLineNum = 983040;BA.debugLine="Sub create_db (name As String, table As String, co";
-RDebugUtils.currentLine=983041;
- //BA.debugLineNum = 983041;BA.debugLine="Log(name)";
-anywheresoftware.b4a.keywords.Common.LogImpl("5983041",_name,0);
-RDebugUtils.currentLine=983042;
- //BA.debugLineNum = 983042;BA.debugLine="Log(table)";
-anywheresoftware.b4a.keywords.Common.LogImpl("5983042",_table,0);
-RDebugUtils.currentLine=983043;
- //BA.debugLineNum = 983043;BA.debugLine="Log(col)";
-anywheresoftware.b4a.keywords.Common.LogImpl("5983043",_col,0);
-RDebugUtils.currentLine=983044;
- //BA.debugLineNum = 983044;BA.debugLine="DB.Initialize(File.DirInternal,name,True)";
+RDebugUtils.currentLine=196608;
+ //BA.debugLineNum = 196608;BA.debugLine="Sub create_db (name As String, table As String, co";
+RDebugUtils.currentLine=196609;
+ //BA.debugLineNum = 196609;BA.debugLine="Log(name)";
+anywheresoftware.b4a.keywords.Common.LogImpl("2196609",_name,0);
+RDebugUtils.currentLine=196610;
+ //BA.debugLineNum = 196610;BA.debugLine="Log(table)";
+anywheresoftware.b4a.keywords.Common.LogImpl("2196610",_table,0);
+RDebugUtils.currentLine=196611;
+ //BA.debugLineNum = 196611;BA.debugLine="Log(col)";
+anywheresoftware.b4a.keywords.Common.LogImpl("2196611",_col,0);
+RDebugUtils.currentLine=196612;
+ //BA.debugLineNum = 196612;BA.debugLine="DB.Initialize(File.DirInternal,name,True)";
 _db.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirInternal(),_name,anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=983045;
- //BA.debugLineNum = 983045;BA.debugLine="DB.BeginTransaction";
+RDebugUtils.currentLine=196613;
+ //BA.debugLineNum = 196613;BA.debugLine="DB.BeginTransaction";
 _db.BeginTransaction();
-RDebugUtils.currentLine=983046;
- //BA.debugLineNum = 983046;BA.debugLine="Try";
-try {RDebugUtils.currentLine=983047;
- //BA.debugLineNum = 983047;BA.debugLine="DB.ExecNonQuery(\"CREATE TABLE IF NOT EXISTS \"&ta";
+RDebugUtils.currentLine=196614;
+ //BA.debugLineNum = 196614;BA.debugLine="Try";
+try {RDebugUtils.currentLine=196615;
+ //BA.debugLineNum = 196615;BA.debugLine="DB.ExecNonQuery(\"CREATE TABLE IF NOT EXISTS \"&ta";
 _db.ExecNonQuery("CREATE TABLE IF NOT EXISTS "+_table+" "+_col);
-RDebugUtils.currentLine=983048;
- //BA.debugLineNum = 983048;BA.debugLine="DB.TransactionSuccessful";
+RDebugUtils.currentLine=196616;
+ //BA.debugLineNum = 196616;BA.debugLine="DB.TransactionSuccessful";
 _db.TransactionSuccessful();
-RDebugUtils.currentLine=983049;
- //BA.debugLineNum = 983049;BA.debugLine="ToastMessageShow(\"Tabla: \"&table&\", creada\",Fals";
+RDebugUtils.currentLine=196617;
+ //BA.debugLineNum = 196617;BA.debugLine="ToastMessageShow(\"Tabla: \"&table&\", creada\",Fals";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Tabla: "+_table+", creada"),anywheresoftware.b4a.keywords.Common.False);
  } 
        catch (Exception e11) {
-			processBA.setLastException(e11);RDebugUtils.currentLine=983051;
- //BA.debugLineNum = 983051;BA.debugLine="ToastMessageShow(\"Error en la creación de la Tab";
+			processBA.setLastException(e11);RDebugUtils.currentLine=196619;
+ //BA.debugLineNum = 196619;BA.debugLine="ToastMessageShow(\"Error en la creación de la Tab";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Error en la creación de la Tabla: "+_table),anywheresoftware.b4a.keywords.Common.False);
-RDebugUtils.currentLine=983052;
- //BA.debugLineNum = 983052;BA.debugLine="Log(\"ERROR en la creación de la tabla:\"&table&\",";
-anywheresoftware.b4a.keywords.Common.LogImpl("5983052","ERROR en la creación de la tabla:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+RDebugUtils.currentLine=196620;
+ //BA.debugLineNum = 196620;BA.debugLine="Log(\"ERROR en la creación de la tabla:\"&table&\",";
+anywheresoftware.b4a.keywords.Common.LogImpl("2196620","ERROR en la creación de la tabla:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
  };
-RDebugUtils.currentLine=983054;
- //BA.debugLineNum = 983054;BA.debugLine="DB.EndTransaction";
+RDebugUtils.currentLine=196622;
+ //BA.debugLineNum = 196622;BA.debugLine="DB.EndTransaction";
 _db.EndTransaction();
-RDebugUtils.currentLine=983055;
- //BA.debugLineNum = 983055;BA.debugLine="End Sub";
+RDebugUtils.currentLine=196623;
+ //BA.debugLineNum = 196623;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
 RDebugUtils.currentModule="main";
-RDebugUtils.currentLine=262144;
- //BA.debugLineNum = 262144;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
-RDebugUtils.currentLine=262146;
- //BA.debugLineNum = 262146;BA.debugLine="End Sub";
+RDebugUtils.currentLine=327680;
+ //BA.debugLineNum = 327680;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+RDebugUtils.currentLine=327682;
+ //BA.debugLineNum = 327682;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_resume() throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_resume", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "activity_resume", null));}
-RDebugUtils.currentLine=196608;
- //BA.debugLineNum = 196608;BA.debugLine="Sub Activity_Resume";
-RDebugUtils.currentLine=196610;
- //BA.debugLineNum = 196610;BA.debugLine="End Sub";
+RDebugUtils.currentLine=262144;
+ //BA.debugLineNum = 262144;BA.debugLine="Sub Activity_Resume";
+RDebugUtils.currentLine=262146;
+ //BA.debugLineNum = 262146;BA.debugLine="End Sub";
 return "";
 }
 }

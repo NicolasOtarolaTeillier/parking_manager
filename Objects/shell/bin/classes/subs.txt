@@ -2,11 +2,11 @@ b4a.EjemploSQLite
 0
 0
 0
-main,activity_create,1,1,32,49
+main,activity_create,1,0,32,49
 ,tabhost1,,name_db,,tables_db,,table_cars,,db
 ,tabhost1,,name_db,,table_cars
 ,create_db
-main,create_db,0,1,51,66
+main,create_db,0,0,51,66
 ,db
 
 
