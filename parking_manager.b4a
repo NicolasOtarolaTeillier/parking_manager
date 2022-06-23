@@ -40,6 +40,7 @@ End Sub
 Sub Globals
 	' tabhost
 	Private TabHost1 As TabHost
+	Private label_main As Label
 	
 	' database
 	Private name_db As String
@@ -53,14 +54,14 @@ Sub Globals
 	Private customer_button_patent As Button
 	Private customer_delete_table As Button
 	
-	
-	'page parked
+	' page parked
 	Private parked_listview As ListView
 	Private parked_button As Button
+	Private parked_today As Button
+	Private parked_leave As Button
 	Private query_selector As Cursor
 	
-
-	
+	' page info
 	Private info_background As Label
 	Private info_label_pay As Label
 	Private info_label_time As Label
@@ -68,15 +69,15 @@ Sub Globals
 	Private info_label_start As Label
 	Private info_label_date As Label
 	Private info_label_patent As Label
-	
-	
 	Private label_patent As Label
 	Private label_date As Label
 	Private label_start As Label
 	Private label_end As Label
 	Private label_time As Label
 	Private label_pay As Label
-	
+	Private label_id As Label
+	Private info_button_pay As Button
+
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -98,6 +99,9 @@ Sub Activity_Create(FirstTime As Boolean)
 		table_cars = "(id INTEGER PRIMARY KEY AUTOINCREMENT, patent TEXT, date TEXT, hour TEXT, end TEXT, time TEXT, payment FLOAT)"
 		create_db(name_db,tables_db.Get(0), table_cars)
 	End If
+	
+	' default text
+	label_main.Text = "Enter car patent"
 	
 End Sub
 
@@ -139,8 +143,7 @@ Private Sub customer_button_patent_Click
 	Else
 		hour = DateTime.GetHour(time)&":"&DateTime.GetMinute(time)
 	End If
-	Log( DateTime.GetMinute(time).As(Int))
-	insert_into_table(name_db,tables_db.Get(0),col,patent,date,hour,"",0,0)
+	insert_into_table(name_db,tables_db.Get(0),col,patent,date,hour,"","",0)
 	customer_text_patent.Text = ""	
 
 End Sub
@@ -175,10 +178,16 @@ Private Sub parked_button_Click
 			parked_listview.AddSingleLine(p&" "&d&" "&h)
 		Next
 	End If
+	label_main.Text = "List of cars parked"
 End Sub
 
 Private Sub parked_listview_ItemClick (Position As Int, Value As Object)
 	'ToastMessageShow("You select this: "&CRLF&Value,True)
+	query_selector.Position=Position
+	If query_selector.GetString("payment") <> 0 Then
+		Return
+	End If
+	
 	Dim sf As Object = Msgbox2Async("Press YES to acept or NO to decline","Do you want to pay?","YES","CANCEL","NO",Null,True)
 	Wait For (sf) Msgbox_Result (Result As Int)
 	If Result = xui.DialogResponse_Positive Then
@@ -189,7 +198,7 @@ Private Sub parked_listview_ItemClick (Position As Int, Value As Object)
 		Dim mi,ho,ti As Int
 		Dim da As String
 		
-		
+		label_id.Text = query_selector.GetString("id")
 		label_patent.Text = query_selector.GetString("patent")
 		label_date.Text = query_selector.GetString("date")
 		label_start.Text = query_selector.GetString("hour")
@@ -219,14 +228,15 @@ Private Sub parked_listview_ItemClick (Position As Int, Value As Object)
 				ti = ho*60 + mi
 			End If
 		End If
-		label_time.Text = ti&" minutes"
+		label_time.Text = ti&"minutes"
+		label_time.Tag = ti
 		If ti < 15 Then
-			label_pay.Text = "$ 500"
+			label_pay.Text = "500"
+			label_pay.Tag = "500"
 		Else
 			label_pay.Text ="$500 + "&(ti-15)&" * $30"&" = $"&(500 +(ti-15)*30).As(String)
-		End If
-'		Log(da)
-'		Log(query_selector.GetString("date"))	
+			label_pay.Tag = (500 +(ti-15)*30).As(String)
+		End If	
 	End If
 End Sub
 
@@ -251,6 +261,113 @@ Private Sub customer_delete_table_click
 
 	End If
 	
+	
+	
+End Sub
+
+Private Sub info_button_pay_Click
+	If label_patent.Text = "" Then
+		xui.MsgboxAsync("The patent does not exist, please enter a patent.","Patent Error!")
+		Return
+	End If
+	Dim pat,dat,sta,en,tim,pay,id As String
+	id = label_id.Text
+	pat = label_patent.Text
+	dat = label_date.Text
+	sta = label_start.Text
+	en = label_end.Text
+	tim = label_time.Tag
+	pay = label_pay.Tag.As(Float)
+	update_record(name_db,tables_db.Get(0),en,tim,pay,id)
+	label_id.Text = ""
+	label_patent.Text = ""
+	label_date.Text = ""
+	label_start.Text = ""
+	label_end.Text = ""
+	label_time.Tag = ""
+	label_time.Text = "0 minutes"
+	label_pay.Tag = ""
+	label_pay.Text = "$ 0"
+	
+End Sub
+
+Sub update_record (name As String,table As String,en As String, ti As String,pay As Float, id As String)
+
+	SQLite.Initialize(File.DirInternal,name,True)
+	SQLite.BeginTransaction
+	Try	
+			SQLite.ExecNonQuery("UPDATE "&table&" SET end = '"&en&"', time = "&ti&", payment = "&pay&" where id = "&id)
+		SQLite.TransactionSuccessful
+		xui.MsgboxAsync("Update to id= "&id, "successfully")
+	Catch
+		ToastMessageShow("Update into failed: "&table,True)
+		Log("Update into failedd:"&table&", "&LastException.Message)
+	End Try
+	SQLite.EndTransaction
+End Sub
+
+Private Sub TabHost1_TabChanged
+	If TabHost1.CurrentTab = 0 Then
+		label_main.Text = "Enter car patent"
+		parked_listview.Clear
+	End If
+	
+	If TabHost1.CurrentTab = 1 Then
+		label_main.Text = "List cars"
+		parked_listview.Clear
+	End If
+	
+	If TabHost1.CurrentTab = 2 Then
+		label_main.Text = "Payment details"
+		parked_listview.Clear
+	End If
+End Sub
+
+Private Sub parked_leave_Click
+	Dim time,da As String
+	time = DateTime.Now
+	da = DateTime.GetYear(time)&"/"&DateTime.GetMonth(time)&"/"&DateTime.GetDayOfMonth(time)
+		
+	
+	query_selector=SQLite.ExecQuery("SELECT * FROM "&tables_db.Get(0)&" WHERE date='"&da&"' and payment > 0 ORDER BY patent ASC")
+	parked_listview.clear
+	If query_selector.RowCount>0 Then
+		
+		For i=0 To query_selector.RowCount-1
+			query_selector.Position=i
+			Dim p,d,h,pay As String
+			p=query_selector.GetString("patent")
+			d=query_selector.GetString("date")
+			h=query_selector.GetString("hour")
+			pay=query_selector.GetString("payment")
+			parked_listview.AddSingleLine(p&" "&d&" "&h&" "&pay)
+		Next
+	End If
+	label_main.Text = "List of cars leave parked today"
+End Sub
+
+Private Sub parked_today_Click
+	Dim time,da As String
+	time = DateTime.Now
+	da = DateTime.GetYear(time)&"/"&DateTime.GetMonth(time)&"/"&DateTime.GetDayOfMonth(time)
+		
+	
+	query_selector=SQLite.ExecQuery("SELECT * FROM "&tables_db.Get(0)&" WHERE date='"&da&"' ORDER BY patent ASC")
+	parked_listview.clear
+	If query_selector.RowCount>0 Then
+		
+		For i=0 To query_selector.RowCount-1
+			query_selector.Position=i
+			Dim p,d,h,pay As String
+			p=query_selector.GetString("patent")
+			d=query_selector.GetString("date")
+			h=query_selector.GetString("hour")
+			pay=query_selector.GetString("payment")
+			parked_listview.AddSingleLine(p&" "&d&" "&h&" "&pay)
+		Next
+	End If
+	
+	label_main.Text = "List of cars parked today"
 	
 	
 End Sub
