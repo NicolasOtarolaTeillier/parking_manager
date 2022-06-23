@@ -53,6 +53,9 @@ Sub Globals
 	Private customer_text_patent As EditText
 	Private customer_button_patent As Button
 	Private customer_delete_table As Button
+	Private label_hour As EditText
+	Private labe_ As Label
+	Private label_minute As EditText
 	
 	' page parked
 	Private parked_listview As ListView
@@ -78,6 +81,7 @@ Sub Globals
 	Private label_id As Label
 	Private info_button_pay As Button
 
+	
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -137,14 +141,49 @@ Private Sub customer_button_patent_Click
 	time = DateTime.Now
 	patent = customer_text_patent.Text
 	date = DateTime.GetYear(time)&"/"&DateTime.GetMonth(time)&"/"&DateTime.GetDayOfMonth(time)
-
-	If DateTime.GetMinute(time).As(Int) <= 9 Then
-		hour = DateTime.GetHour(time)&":0"&DateTime.GetMinute(time)
+	If label_hour.Text = "" Then
+		If DateTime.GetMinute(time).As(Int) <= 9 Then
+			If DateTime.GetHour(time).As(Int) <= 9 Then
+				hour = "0"&DateTime.GetHour(time)&":0"&DateTime.GetMinute(time)
+			Else
+				hour = DateTime.GetHour(time)&":0"&DateTime.GetMinute(time)
+			End If	
+		Else
+			If DateTime.GetHour(time).As(Int) <= 9 Then
+				hour = "0"&DateTime.GetHour(time)&":"&DateTime.GetMinute(time)
+			Else
+				hour = DateTime.GetHour(time)&":"&DateTime.GetMinute(time)
+			End If
+		End If
 	Else
-		hour = DateTime.GetHour(time)&":"&DateTime.GetMinute(time)
+		If label_minute.Text = "" Or label_minute.Text.As(Int) < 0 Or label_minute.Text.As(Int) > 59 Then
+			xui.MsgboxAsync("The minutes does not correct, please enter a valid minutes.","Minute Error!")		
+			Return	
+		End If
+		
+		If label_hour.Text.As(Int) < 0 Or label_hour.Text.As(Int) >= 24 Then
+			xui.MsgboxAsync("The hour does not correct, please enter a valid hour.","Hour Error!")
+			Return
+		End If
+		
+		If label_hour.Text.As(Int) <= 9 Then
+			If label_minute.Text.As(Int) <=9 Then
+				hour = "0"&label_hour.Text&":0"&label_minute.Text
+			Else
+				hour = "0"&label_hour.Text&":"&label_minute.Text
+			End If
+		Else
+			If label_minute.Text.As(Int) <=9 Then
+				hour = label_hour.Text&":0"&label_minute.Text
+			Else
+				hour = label_hour.Text&":"&label_minute.Text
+			End If
+		End If
 	End If
 	insert_into_table(name_db,tables_db.Get(0),col,patent,date,hour,"","",0)
-	customer_text_patent.Text = ""	
+	customer_text_patent.Text = ""
+	label_hour.Text = ""
+	label_minute.Text = ""	
 
 End Sub
 
@@ -228,7 +267,7 @@ Private Sub parked_listview_ItemClick (Position As Int, Value As Object)
 				ti = ho*60 + mi
 			End If
 		End If
-		label_time.Text = ti&"minutes"
+		label_time.Text = ti&" minutes"
 		label_time.Tag = ti
 		If ti < 15 Then
 			label_pay.Text = "500"
