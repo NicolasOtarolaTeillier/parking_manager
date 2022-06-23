@@ -386,9 +386,23 @@ public anywheresoftware.b4a.objects.LabelWrapper _customer_label_patent = null;
 public anywheresoftware.b4a.objects.LabelWrapper _customer_background = null;
 public anywheresoftware.b4a.objects.EditTextWrapper _customer_text_patent = null;
 public anywheresoftware.b4a.objects.ButtonWrapper _customer_button_patent = null;
+public anywheresoftware.b4a.objects.ButtonWrapper _customer_delete_table = null;
 public anywheresoftware.b4a.objects.ListViewWrapper _parked_listview = null;
 public anywheresoftware.b4a.objects.ButtonWrapper _parked_button = null;
 public anywheresoftware.b4a.sql.SQL.CursorWrapper _query_selector = null;
+public anywheresoftware.b4a.objects.LabelWrapper _info_background = null;
+public anywheresoftware.b4a.objects.LabelWrapper _info_label_pay = null;
+public anywheresoftware.b4a.objects.LabelWrapper _info_label_time = null;
+public anywheresoftware.b4a.objects.LabelWrapper _info_label_end = null;
+public anywheresoftware.b4a.objects.LabelWrapper _info_label_start = null;
+public anywheresoftware.b4a.objects.LabelWrapper _info_label_date = null;
+public anywheresoftware.b4a.objects.LabelWrapper _info_label_patent = null;
+public anywheresoftware.b4a.objects.LabelWrapper _label_patent = null;
+public anywheresoftware.b4a.objects.LabelWrapper _label_date = null;
+public anywheresoftware.b4a.objects.LabelWrapper _label_start = null;
+public anywheresoftware.b4a.objects.LabelWrapper _label_end = null;
+public anywheresoftware.b4a.objects.LabelWrapper _label_time = null;
+public anywheresoftware.b4a.objects.LabelWrapper _label_pay = null;
 public static String  _activity_create(boolean _firsttime) throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_create", false))
@@ -460,7 +474,7 @@ anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("S
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Table creation failed: "+_table),anywheresoftware.b4a.keywords.Common.True);
 RDebugUtils.currentLine=196617;
  //BA.debugLineNum = 196617;BA.debugLine="Log(\"Table creation failed:\"&table&\", \"&LastExce";
-anywheresoftware.b4a.keywords.Common.LogImpl("2196617","Table creation failed:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("0196617","Table creation failed:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
  };
 RDebugUtils.currentLine=196619;
  //BA.debugLineNum = 196619;BA.debugLine="SQLite.EndTransaction";
@@ -496,88 +510,222 @@ String _patent = "";
 String _date = "";
 String _hour = "";
 String _time = "";
-RDebugUtils.currentLine=458752;
- //BA.debugLineNum = 458752;BA.debugLine="Private Sub customer_button_patent_Click";
-RDebugUtils.currentLine=458753;
- //BA.debugLineNum = 458753;BA.debugLine="If customer_text_patent.Text = \"\" Then";
+RDebugUtils.currentLine=393216;
+ //BA.debugLineNum = 393216;BA.debugLine="Private Sub customer_button_patent_Click";
+RDebugUtils.currentLine=393217;
+ //BA.debugLineNum = 393217;BA.debugLine="If customer_text_patent.Text = \"\" Then";
 if ((mostCurrent._customer_text_patent.getText()).equals("")) { 
-RDebugUtils.currentLine=458754;
- //BA.debugLineNum = 458754;BA.debugLine="xui.MsgboxAsync(\"The patent does not exist, plea";
+RDebugUtils.currentLine=393218;
+ //BA.debugLineNum = 393218;BA.debugLine="xui.MsgboxAsync(\"The patent does not exist, plea";
 _xui.MsgboxAsync(processBA,BA.ObjectToCharSequence("The patent does not exist, please enter a patent."),BA.ObjectToCharSequence("Patent Error!"));
-RDebugUtils.currentLine=458755;
- //BA.debugLineNum = 458755;BA.debugLine="Return";
+RDebugUtils.currentLine=393219;
+ //BA.debugLineNum = 393219;BA.debugLine="Return";
 if (true) return "";
  };
-RDebugUtils.currentLine=458757;
- //BA.debugLineNum = 458757;BA.debugLine="Dim col,patent,date,hour,time As String";
+RDebugUtils.currentLine=393221;
+ //BA.debugLineNum = 393221;BA.debugLine="Dim col,patent,date,hour,time As String";
 _col = "";
 _patent = "";
 _date = "";
 _hour = "";
 _time = "";
-RDebugUtils.currentLine=458758;
- //BA.debugLineNum = 458758;BA.debugLine="col = \"(patent, date, hour, payment)\"";
+RDebugUtils.currentLine=393222;
+ //BA.debugLineNum = 393222;BA.debugLine="col = \"(patent, date, hour, payment)\"";
 _col = "(patent, date, hour, payment)";
-RDebugUtils.currentLine=458759;
- //BA.debugLineNum = 458759;BA.debugLine="time = DateTime.Now";
+RDebugUtils.currentLine=393223;
+ //BA.debugLineNum = 393223;BA.debugLine="time = DateTime.Now";
 _time = BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.getNow());
-RDebugUtils.currentLine=458760;
- //BA.debugLineNum = 458760;BA.debugLine="patent = customer_text_patent.Text";
+RDebugUtils.currentLine=393224;
+ //BA.debugLineNum = 393224;BA.debugLine="patent = customer_text_patent.Text";
 _patent = mostCurrent._customer_text_patent.getText();
-RDebugUtils.currentLine=458761;
- //BA.debugLineNum = 458761;BA.debugLine="date = DateTime.GetYear(time)&\"/\"&DateTime.GetMon";
+RDebugUtils.currentLine=393225;
+ //BA.debugLineNum = 393225;BA.debugLine="date = DateTime.GetYear(time)&\"/\"&DateTime.GetMon";
 _date = BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.GetYear((long)(Double.parseDouble(_time))))+"/"+BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.GetMonth((long)(Double.parseDouble(_time))))+"/"+BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.GetDayOfMonth((long)(Double.parseDouble(_time))));
-RDebugUtils.currentLine=458762;
- //BA.debugLineNum = 458762;BA.debugLine="hour = DateTime.GetHour(time)&\":\"&DateTime.GetMin";
+RDebugUtils.currentLine=393226;
+ //BA.debugLineNum = 393226;BA.debugLine="If DateTime.GetMinute(time).As(Int) <= 9 Then";
+if ((anywheresoftware.b4a.keywords.Common.DateTime.GetMinute((long)(Double.parseDouble(_time))))<=9) { 
+RDebugUtils.currentLine=393227;
+ //BA.debugLineNum = 393227;BA.debugLine="hour = DateTime.GetHour(time)&\":0\"&DateTime.GetM";
+_hour = BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.GetHour((long)(Double.parseDouble(_time))))+":0"+BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.GetMinute((long)(Double.parseDouble(_time))));
+ }else {
+RDebugUtils.currentLine=393229;
+ //BA.debugLineNum = 393229;BA.debugLine="hour = DateTime.GetHour(time)&\":\"&DateTime.GetMi";
 _hour = BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.GetHour((long)(Double.parseDouble(_time))))+":"+BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.GetMinute((long)(Double.parseDouble(_time))));
-RDebugUtils.currentLine=458763;
- //BA.debugLineNum = 458763;BA.debugLine="insert_into_table(name_db,tables_db.Get(0),col,pa";
+ };
+RDebugUtils.currentLine=393231;
+ //BA.debugLineNum = 393231;BA.debugLine="insert_into_table(name_db,tables_db.Get(0),col,pa";
 _insert_into_table(mostCurrent._name_db,BA.ObjectToString(mostCurrent._tables_db.Get((int) (0))),_col,_patent,_date,_hour,BA.NumberToString(0));
-RDebugUtils.currentLine=458764;
- //BA.debugLineNum = 458764;BA.debugLine="customer_text_patent.Text = \"\"";
+RDebugUtils.currentLine=393232;
+ //BA.debugLineNum = 393232;BA.debugLine="customer_text_patent.Text = \"\"";
 mostCurrent._customer_text_patent.setText(BA.ObjectToCharSequence(""));
-RDebugUtils.currentLine=458767;
- //BA.debugLineNum = 458767;BA.debugLine="End Sub";
+RDebugUtils.currentLine=393234;
+ //BA.debugLineNum = 393234;BA.debugLine="End Sub";
 return "";
 }
 public static String  _insert_into_table(String _name,String _table,String _col,String _i1,String _i2,String _i3,String _i4) throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "insert_into_table", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "insert_into_table", new Object[] {_name,_table,_col,_i1,_i2,_i3,_i4}));}
-RDebugUtils.currentLine=1835008;
- //BA.debugLineNum = 1835008;BA.debugLine="Sub insert_into_table (name As String,table As Str";
-RDebugUtils.currentLine=1835010;
- //BA.debugLineNum = 1835010;BA.debugLine="SQLite.Initialize(File.DirInternal,name,True)";
+RDebugUtils.currentLine=458752;
+ //BA.debugLineNum = 458752;BA.debugLine="Sub insert_into_table (name As String,table As Str";
+RDebugUtils.currentLine=458754;
+ //BA.debugLineNum = 458754;BA.debugLine="SQLite.Initialize(File.DirInternal,name,True)";
 _sqlite.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirInternal(),_name,anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=1835011;
- //BA.debugLineNum = 1835011;BA.debugLine="SQLite.BeginTransaction";
+RDebugUtils.currentLine=458755;
+ //BA.debugLineNum = 458755;BA.debugLine="SQLite.BeginTransaction";
 _sqlite.BeginTransaction();
-RDebugUtils.currentLine=1835012;
- //BA.debugLineNum = 1835012;BA.debugLine="Try";
-try {RDebugUtils.currentLine=1835013;
- //BA.debugLineNum = 1835013;BA.debugLine="SQLite.ExecNonQuery2(\"INSERT INTO \"&table&\" \"&co";
-_sqlite.ExecNonQuery2("INSERT INTO "+_table+" "+_col+" VALUES (?,?,?,?)",anywheresoftware.b4a.keywords.Common.ArrayToList(new Object[]{(Object)(_i1),(Object)(_i2),(Object)(_i3),(Object)(_i4)}));
-RDebugUtils.currentLine=1835014;
- //BA.debugLineNum = 1835014;BA.debugLine="SQLite.TransactionSuccessful";
+RDebugUtils.currentLine=458756;
+ //BA.debugLineNum = 458756;BA.debugLine="Try";
+try {RDebugUtils.currentLine=458757;
+ //BA.debugLineNum = 458757;BA.debugLine="SQLite.ExecNonQuery2(\"INSERT INTO \"&table&\" \"&co";
+_sqlite.ExecNonQuery2("INSERT INTO "+_table+" "+_col+" VALUES (?,?,?,?)",anywheresoftware.b4a.keywords.Common.ArrayToList(new Object[]{(Object)(_i1.toUpperCase()),(Object)(_i2),(Object)(_i3),(Object)(_i4)}));
+RDebugUtils.currentLine=458758;
+ //BA.debugLineNum = 458758;BA.debugLine="SQLite.TransactionSuccessful";
 _sqlite.TransactionSuccessful();
-RDebugUtils.currentLine=1835015;
- //BA.debugLineNum = 1835015;BA.debugLine="xui.MsgboxAsync(\"Patent: \"&i1&CRLF&\"Date: \"&i2&C";
+RDebugUtils.currentLine=458759;
+ //BA.debugLineNum = 458759;BA.debugLine="xui.MsgboxAsync(\"Patent: \"&i1&CRLF&\"Date: \"&i2&C";
 _xui.MsgboxAsync(processBA,BA.ObjectToCharSequence("Patent: "+_i1+anywheresoftware.b4a.keywords.Common.CRLF+"Date: "+_i2+anywheresoftware.b4a.keywords.Common.CRLF+"Hour: "+_i3+anywheresoftware.b4a.keywords.Common.CRLF+"Payment: "+_i4),BA.ObjectToCharSequence("Insert into: "+_table+", successfully"));
  } 
        catch (Exception e8) {
-			processBA.setLastException(e8);RDebugUtils.currentLine=1835017;
- //BA.debugLineNum = 1835017;BA.debugLine="ToastMessageShow(\"Insert into failed: \"&table,Tr";
+			processBA.setLastException(e8);RDebugUtils.currentLine=458761;
+ //BA.debugLineNum = 458761;BA.debugLine="ToastMessageShow(\"Insert into failed: \"&table,Tr";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Insert into failed: "+_table),anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=1835018;
- //BA.debugLineNum = 1835018;BA.debugLine="Log(\"Insert into failedd:\"&table&\", \"&LastExcept";
-anywheresoftware.b4a.keywords.Common.LogImpl("21835018","Insert into failedd:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+RDebugUtils.currentLine=458762;
+ //BA.debugLineNum = 458762;BA.debugLine="Log(\"Insert into failedd:\"&table&\", \"&LastExcept";
+anywheresoftware.b4a.keywords.Common.LogImpl("0458762","Insert into failedd:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
  };
-RDebugUtils.currentLine=1835020;
- //BA.debugLineNum = 1835020;BA.debugLine="SQLite.EndTransaction";
+RDebugUtils.currentLine=458764;
+ //BA.debugLineNum = 458764;BA.debugLine="SQLite.EndTransaction";
 _sqlite.EndTransaction();
-RDebugUtils.currentLine=1835021;
- //BA.debugLineNum = 1835021;BA.debugLine="End Sub";
+RDebugUtils.currentLine=458765;
+ //BA.debugLineNum = 458765;BA.debugLine="End Sub";
 return "";
+}
+public static void  _customer_delete_table_click() throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "customer_delete_table_click", false))
+	 {Debug.delegate(mostCurrent.activityBA, "customer_delete_table_click", null); return;}
+ResumableSub_customer_delete_table_click rsub = new ResumableSub_customer_delete_table_click(null);
+rsub.resume(processBA, null);
+}
+public static class ResumableSub_customer_delete_table_click extends BA.ResumableSub {
+public ResumableSub_customer_delete_table_click(b4a.EjemploSQLite.main parent) {
+this.parent = parent;
+}
+b4a.EjemploSQLite.main parent;
+int _result = 0;
+
+@Override
+public void resume(BA ba, Object[] result) throws Exception{
+RDebugUtils.currentModule="main";
+
+    while (true) {
+try {
+
+        switch (state) {
+            case -1:
+return;
+
+case 0:
+//C
+this.state = 1;
+RDebugUtils.currentLine=655361;
+ //BA.debugLineNum = 655361;BA.debugLine="Msgbox2Async(\"¿Desea borrar la tabla \"&tables_db.";
+anywheresoftware.b4a.keywords.Common.Msgbox2Async(BA.ObjectToCharSequence("¿Desea borrar la tabla "+BA.ObjectToString(parent.mostCurrent._tables_db.Get((int) (0)))+"?"),BA.ObjectToCharSequence("Atención!"),"Si","Cancelar","No",(anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper(), (android.graphics.Bitmap)(anywheresoftware.b4a.keywords.Common.Null)),processBA,anywheresoftware.b4a.keywords.Common.True);
+RDebugUtils.currentLine=655362;
+ //BA.debugLineNum = 655362;BA.debugLine="Wait For Msgbox_Result(Result As Int)";
+anywheresoftware.b4a.keywords.Common.WaitFor("msgbox_result", processBA, new anywheresoftware.b4a.shell.DebugResumableSub.DelegatableResumableSub(this, "main", "customer_delete_table_click"), null);
+this.state = 11;
+return;
+case 11:
+//C
+this.state = 1;
+_result = (Integer) result[0];
+;
+RDebugUtils.currentLine=655363;
+ //BA.debugLineNum = 655363;BA.debugLine="If Result = DialogResponse.POSITIVE Then";
+if (true) break;
+
+case 1:
+//if
+this.state = 10;
+if (_result==anywheresoftware.b4a.keywords.Common.DialogResponse.POSITIVE) { 
+this.state = 3;
+}if (true) break;
+
+case 3:
+//C
+this.state = 4;
+RDebugUtils.currentLine=655365;
+ //BA.debugLineNum = 655365;BA.debugLine="SQLite.Initialize(File.DirInternal,name_db,True)";
+parent._sqlite.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirInternal(),parent.mostCurrent._name_db,anywheresoftware.b4a.keywords.Common.True);
+RDebugUtils.currentLine=655368;
+ //BA.debugLineNum = 655368;BA.debugLine="SQLite.BeginTransaction";
+parent._sqlite.BeginTransaction();
+RDebugUtils.currentLine=655369;
+ //BA.debugLineNum = 655369;BA.debugLine="Try";
+if (true) break;
+
+case 4:
+//try
+this.state = 9;
+this.catchState = 8;
+this.state = 6;
+if (true) break;
+
+case 6:
+//C
+this.state = 9;
+this.catchState = 8;
+RDebugUtils.currentLine=655370;
+ //BA.debugLineNum = 655370;BA.debugLine="SQLite.ExecNonQuery(\"DELETE FROM \"&tables_db.Ge";
+parent._sqlite.ExecNonQuery("DELETE FROM "+BA.ObjectToString(parent.mostCurrent._tables_db.Get((int) (0))));
+RDebugUtils.currentLine=655372;
+ //BA.debugLineNum = 655372;BA.debugLine="ToastMessageShow(\"Registros de la tabla: \"&tabl";
+anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Registros de la tabla: "+BA.ObjectToString(parent.mostCurrent._tables_db.Get((int) (0)))+", eliminados"),anywheresoftware.b4a.keywords.Common.True);
+RDebugUtils.currentLine=655373;
+ //BA.debugLineNum = 655373;BA.debugLine="SQLite.TransactionSuccessful";
+parent._sqlite.TransactionSuccessful();
+ if (true) break;
+
+case 8:
+//C
+this.state = 9;
+this.catchState = 0;
+RDebugUtils.currentLine=655375;
+ //BA.debugLineNum = 655375;BA.debugLine="Log(\"ERROR al elminar tabla: \"&tables_db.Get(0)";
+anywheresoftware.b4a.keywords.Common.LogImpl("0655375","ERROR al elminar tabla: "+BA.ObjectToString(parent.mostCurrent._tables_db.Get((int) (0)))+" ,"+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+ if (true) break;
+if (true) break;
+
+case 9:
+//C
+this.state = 10;
+this.catchState = 0;
+;
+RDebugUtils.currentLine=655377;
+ //BA.debugLineNum = 655377;BA.debugLine="SQLite.EndTransaction";
+parent._sqlite.EndTransaction();
+ if (true) break;
+
+case 10:
+//C
+this.state = -1;
+;
+RDebugUtils.currentLine=655383;
+ //BA.debugLineNum = 655383;BA.debugLine="End Sub";
+if (true) break;
+}} 
+       catch (Exception e0) {
+			
+if (catchState == 0)
+    throw e0;
+else {
+    state = catchState;
+processBA.setLastException(e0);}
+            }
+        }
+    }
 }
 public static String  _parked_button_click() throws Exception{
 RDebugUtils.currentModule="main";
@@ -587,49 +735,305 @@ int _i = 0;
 String _p = "";
 String _d = "";
 String _h = "";
-RDebugUtils.currentLine=1900544;
- //BA.debugLineNum = 1900544;BA.debugLine="Private Sub parked_button_Click";
-RDebugUtils.currentLine=1900545;
- //BA.debugLineNum = 1900545;BA.debugLine="query_selector=SQLite.ExecQuery(\"SELECT * FROM \"&";
-mostCurrent._query_selector = (anywheresoftware.b4a.sql.SQL.CursorWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.sql.SQL.CursorWrapper(), (android.database.Cursor)(_sqlite.ExecQuery("SELECT * FROM "+BA.ObjectToString(mostCurrent._tables_db.Get((int) (0)))+" WHERE payment=0 ORDER BY id ASC")));
-RDebugUtils.currentLine=1900546;
- //BA.debugLineNum = 1900546;BA.debugLine="parked_listview.clear";
+RDebugUtils.currentLine=524288;
+ //BA.debugLineNum = 524288;BA.debugLine="Private Sub parked_button_Click";
+RDebugUtils.currentLine=524289;
+ //BA.debugLineNum = 524289;BA.debugLine="query_selector=SQLite.ExecQuery(\"SELECT * FROM \"&";
+mostCurrent._query_selector = (anywheresoftware.b4a.sql.SQL.CursorWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.sql.SQL.CursorWrapper(), (android.database.Cursor)(_sqlite.ExecQuery("SELECT * FROM "+BA.ObjectToString(mostCurrent._tables_db.Get((int) (0)))+" WHERE payment=0 ORDER BY patent ASC")));
+RDebugUtils.currentLine=524290;
+ //BA.debugLineNum = 524290;BA.debugLine="parked_listview.clear";
 mostCurrent._parked_listview.Clear();
-RDebugUtils.currentLine=1900548;
- //BA.debugLineNum = 1900548;BA.debugLine="If query_selector.RowCount>0 Then";
+RDebugUtils.currentLine=524291;
+ //BA.debugLineNum = 524291;BA.debugLine="If query_selector.RowCount>0 Then";
 if (mostCurrent._query_selector.getRowCount()>0) { 
-RDebugUtils.currentLine=1900550;
- //BA.debugLineNum = 1900550;BA.debugLine="For i=0 To query_selector.RowCount-1";
+RDebugUtils.currentLine=524293;
+ //BA.debugLineNum = 524293;BA.debugLine="For i=0 To query_selector.RowCount-1";
 {
 final int step4 = 1;
 final int limit4 = (int) (mostCurrent._query_selector.getRowCount()-1);
 _i = (int) (0) ;
 for (;_i <= limit4 ;_i = _i + step4 ) {
-RDebugUtils.currentLine=1900551;
- //BA.debugLineNum = 1900551;BA.debugLine="query_selector.Position=i";
+RDebugUtils.currentLine=524294;
+ //BA.debugLineNum = 524294;BA.debugLine="query_selector.Position=i";
 mostCurrent._query_selector.setPosition(_i);
-RDebugUtils.currentLine=1900552;
- //BA.debugLineNum = 1900552;BA.debugLine="Dim p,d,h As String";
+RDebugUtils.currentLine=524295;
+ //BA.debugLineNum = 524295;BA.debugLine="Dim p,d,h As String";
 _p = "";
 _d = "";
 _h = "";
-RDebugUtils.currentLine=1900553;
- //BA.debugLineNum = 1900553;BA.debugLine="p=query_selector.GetString(\"patent\")";
+RDebugUtils.currentLine=524296;
+ //BA.debugLineNum = 524296;BA.debugLine="p=query_selector.GetString(\"patent\")";
 _p = mostCurrent._query_selector.GetString("patent");
-RDebugUtils.currentLine=1900554;
- //BA.debugLineNum = 1900554;BA.debugLine="d=query_selector.GetString(\"date\")";
+RDebugUtils.currentLine=524297;
+ //BA.debugLineNum = 524297;BA.debugLine="d=query_selector.GetString(\"date\")";
 _d = mostCurrent._query_selector.GetString("date");
-RDebugUtils.currentLine=1900555;
- //BA.debugLineNum = 1900555;BA.debugLine="h=query_selector.GetString(\"hour\")";
+RDebugUtils.currentLine=524298;
+ //BA.debugLineNum = 524298;BA.debugLine="h=query_selector.GetString(\"hour\")";
 _h = mostCurrent._query_selector.GetString("hour");
-RDebugUtils.currentLine=1900556;
- //BA.debugLineNum = 1900556;BA.debugLine="parked_listview.AddSingleLine(p&\"    \"&d&\"    \"";
-mostCurrent._parked_listview.AddSingleLine(BA.ObjectToCharSequence(_p+"    "+_d+"    "+_h));
+RDebugUtils.currentLine=524299;
+ //BA.debugLineNum = 524299;BA.debugLine="parked_listview.AddSingleLine(p&\" \"&d&\" \"&h)";
+mostCurrent._parked_listview.AddSingleLine(BA.ObjectToCharSequence(_p+" "+_d+" "+_h));
  }
 };
  };
-RDebugUtils.currentLine=1900559;
- //BA.debugLineNum = 1900559;BA.debugLine="End Sub";
+RDebugUtils.currentLine=524302;
+ //BA.debugLineNum = 524302;BA.debugLine="End Sub";
 return "";
+}
+public static void  _parked_listview_itemclick(int _position,Object _value) throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "parked_listview_itemclick", false))
+	 {Debug.delegate(mostCurrent.activityBA, "parked_listview_itemclick", new Object[] {_position,_value}); return;}
+ResumableSub_parked_listview_ItemClick rsub = new ResumableSub_parked_listview_ItemClick(null,_position,_value);
+rsub.resume(processBA, null);
+}
+public static class ResumableSub_parked_listview_ItemClick extends BA.ResumableSub {
+public ResumableSub_parked_listview_ItemClick(b4a.EjemploSQLite.main parent,int _position,Object _value) {
+this.parent = parent;
+this._position = _position;
+this._value = _value;
+}
+b4a.EjemploSQLite.main parent;
+int _position;
+Object _value;
+Object _sf = null;
+int _result = 0;
+String _time = "";
+int _mi = 0;
+int _ho = 0;
+int _ti = 0;
+String _da = "";
+
+@Override
+public void resume(BA ba, Object[] result) throws Exception{
+RDebugUtils.currentModule="main";
+
+    while (true) {
+        switch (state) {
+            case -1:
+return;
+
+case 0:
+//C
+this.state = 1;
+RDebugUtils.currentLine=589826;
+ //BA.debugLineNum = 589826;BA.debugLine="Dim sf As Object = Msgbox2Async(\"Press YES to ace";
+_sf = anywheresoftware.b4a.keywords.Common.Msgbox2Async(BA.ObjectToCharSequence("Press YES to acept or NO to decline"),BA.ObjectToCharSequence("Do you want to pay?"),"YES","CANCEL","NO",(anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper(), (android.graphics.Bitmap)(anywheresoftware.b4a.keywords.Common.Null)),processBA,anywheresoftware.b4a.keywords.Common.True);
+RDebugUtils.currentLine=589827;
+ //BA.debugLineNum = 589827;BA.debugLine="Wait For (sf) Msgbox_Result (Result As Int)";
+anywheresoftware.b4a.keywords.Common.WaitFor("msgbox_result", processBA, new anywheresoftware.b4a.shell.DebugResumableSub.DelegatableResumableSub(this, "main", "parked_listview_itemclick"), _sf);
+this.state = 29;
+return;
+case 29:
+//C
+this.state = 1;
+_result = (Integer) result[0];
+;
+RDebugUtils.currentLine=589828;
+ //BA.debugLineNum = 589828;BA.debugLine="If Result = xui.DialogResponse_Positive Then";
+if (true) break;
+
+case 1:
+//if
+this.state = 28;
+if (_result==parent._xui.DialogResponse_Positive) { 
+this.state = 3;
+}if (true) break;
+
+case 3:
+//C
+this.state = 4;
+RDebugUtils.currentLine=589829;
+ //BA.debugLineNum = 589829;BA.debugLine="TabHost1.CurrentTab = (TabHost1.CurrentTab + 1)";
+parent.mostCurrent._tabhost1.setCurrentTab((int) ((parent.mostCurrent._tabhost1.getCurrentTab()+1)%parent.mostCurrent._tabhost1.getTabCount()));
+RDebugUtils.currentLine=589830;
+ //BA.debugLineNum = 589830;BA.debugLine="query_selector.Position=Position";
+parent.mostCurrent._query_selector.setPosition(_position);
+RDebugUtils.currentLine=589831;
+ //BA.debugLineNum = 589831;BA.debugLine="Dim time As String";
+_time = "";
+RDebugUtils.currentLine=589832;
+ //BA.debugLineNum = 589832;BA.debugLine="time = DateTime.Now";
+_time = BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.getNow());
+RDebugUtils.currentLine=589833;
+ //BA.debugLineNum = 589833;BA.debugLine="Dim mi,ho,ti As Int";
+_mi = 0;
+_ho = 0;
+_ti = 0;
+RDebugUtils.currentLine=589834;
+ //BA.debugLineNum = 589834;BA.debugLine="Dim da As String";
+_da = "";
+RDebugUtils.currentLine=589837;
+ //BA.debugLineNum = 589837;BA.debugLine="label_patent.Text = query_selector.GetString(\"pa";
+parent.mostCurrent._label_patent.setText(BA.ObjectToCharSequence(parent.mostCurrent._query_selector.GetString("patent")));
+RDebugUtils.currentLine=589838;
+ //BA.debugLineNum = 589838;BA.debugLine="label_date.Text = query_selector.GetString(\"date";
+parent.mostCurrent._label_date.setText(BA.ObjectToCharSequence(parent.mostCurrent._query_selector.GetString("date")));
+RDebugUtils.currentLine=589839;
+ //BA.debugLineNum = 589839;BA.debugLine="label_start.Text = query_selector.GetString(\"hou";
+parent.mostCurrent._label_start.setText(BA.ObjectToCharSequence(parent.mostCurrent._query_selector.GetString("hour")));
+RDebugUtils.currentLine=589841;
+ //BA.debugLineNum = 589841;BA.debugLine="da = DateTime.GetYear(time)&\"/\"&DateTime.GetMont";
+_da = BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.GetYear((long)(Double.parseDouble(_time))))+"/"+BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.GetMonth((long)(Double.parseDouble(_time))))+"/"+BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.GetDayOfMonth((long)(Double.parseDouble(_time))));
+RDebugUtils.currentLine=589842;
+ //BA.debugLineNum = 589842;BA.debugLine="If da <> query_selector.GetString(\"date\") Then";
+if (true) break;
+
+case 4:
+//if
+this.state = 9;
+if ((_da).equals(parent.mostCurrent._query_selector.GetString("date")) == false) { 
+this.state = 6;
+}else {
+this.state = 8;
+}if (true) break;
+
+case 6:
+//C
+this.state = 9;
+RDebugUtils.currentLine=589843;
+ //BA.debugLineNum = 589843;BA.debugLine="Log(\"distintos dias\")";
+anywheresoftware.b4a.keywords.Common.LogImpl("0589843","distintos dias",0);
+RDebugUtils.currentLine=589844;
+ //BA.debugLineNum = 589844;BA.debugLine="label_end.Text = \"23:59\"";
+parent.mostCurrent._label_end.setText(BA.ObjectToCharSequence("23:59"));
+ if (true) break;
+
+case 8:
+//C
+this.state = 9;
+RDebugUtils.currentLine=589846;
+ //BA.debugLineNum = 589846;BA.debugLine="label_end.Text = DateTime.GetHour(time).As(Stri";
+parent.mostCurrent._label_end.setText(BA.ObjectToCharSequence((BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.GetHour((long)(Double.parseDouble(_time)))))+":"+(BA.NumberToString(anywheresoftware.b4a.keywords.Common.DateTime.GetMinute((long)(Double.parseDouble(_time)))))));
+ if (true) break;
+
+case 9:
+//C
+this.state = 10;
+;
+RDebugUtils.currentLine=589848;
+ //BA.debugLineNum = 589848;BA.debugLine="ho = (label_end.Text.SubString2(0,2)).As(Int)-(l";
+_ho = (int) (((int)(Double.parseDouble((parent.mostCurrent._label_end.getText().substring((int) (0),(int) (2))))))-((int)(Double.parseDouble((parent.mostCurrent._label_start.getText().substring((int) (0),(int) (2)))))));
+RDebugUtils.currentLine=589849;
+ //BA.debugLineNum = 589849;BA.debugLine="mi = (label_end.Text.SubString2(3,5)).As(Int)-(l";
+_mi = (int) (((int)(Double.parseDouble((parent.mostCurrent._label_end.getText().substring((int) (3),(int) (5))))))-((int)(Double.parseDouble((parent.mostCurrent._label_start.getText().substring((int) (3),(int) (5)))))));
+RDebugUtils.currentLine=589856;
+ //BA.debugLineNum = 589856;BA.debugLine="If ho = 0 Then";
+if (true) break;
+
+case 10:
+//if
+this.state = 21;
+if (_ho==0) { 
+this.state = 12;
+}else {
+this.state = 14;
+}if (true) break;
+
+case 12:
+//C
+this.state = 21;
+RDebugUtils.currentLine=589857;
+ //BA.debugLineNum = 589857;BA.debugLine="ti = ho*60 + mi";
+_ti = (int) (_ho*60+_mi);
+ if (true) break;
+
+case 14:
+//C
+this.state = 15;
+RDebugUtils.currentLine=589859;
+ //BA.debugLineNum = 589859;BA.debugLine="If mi >= 0 Then";
+if (true) break;
+
+case 15:
+//if
+this.state = 20;
+if (_mi>=0) { 
+this.state = 17;
+}else {
+this.state = 19;
+}if (true) break;
+
+case 17:
+//C
+this.state = 20;
+RDebugUtils.currentLine=589860;
+ //BA.debugLineNum = 589860;BA.debugLine="ti = ho*60 + mi";
+_ti = (int) (_ho*60+_mi);
+ if (true) break;
+
+case 19:
+//C
+this.state = 20;
+RDebugUtils.currentLine=589862;
+ //BA.debugLineNum = 589862;BA.debugLine="ho = ho - 1";
+_ho = (int) (_ho-1);
+RDebugUtils.currentLine=589863;
+ //BA.debugLineNum = 589863;BA.debugLine="mi = mi + 60";
+_mi = (int) (_mi+60);
+RDebugUtils.currentLine=589864;
+ //BA.debugLineNum = 589864;BA.debugLine="ti = ho*60 + mi";
+_ti = (int) (_ho*60+_mi);
+ if (true) break;
+
+case 20:
+//C
+this.state = 21;
+;
+ if (true) break;
+
+case 21:
+//C
+this.state = 22;
+;
+RDebugUtils.currentLine=589867;
+ //BA.debugLineNum = 589867;BA.debugLine="label_time.Text = ti&\" minutes\"";
+parent.mostCurrent._label_time.setText(BA.ObjectToCharSequence(BA.NumberToString(_ti)+" minutes"));
+RDebugUtils.currentLine=589868;
+ //BA.debugLineNum = 589868;BA.debugLine="If ti < 15 Then";
+if (true) break;
+
+case 22:
+//if
+this.state = 27;
+if (_ti<15) { 
+this.state = 24;
+}else {
+this.state = 26;
+}if (true) break;
+
+case 24:
+//C
+this.state = 27;
+RDebugUtils.currentLine=589869;
+ //BA.debugLineNum = 589869;BA.debugLine="label_pay.Text = \"$ 500\"";
+parent.mostCurrent._label_pay.setText(BA.ObjectToCharSequence("$ 500"));
+ if (true) break;
+
+case 26:
+//C
+this.state = 27;
+RDebugUtils.currentLine=589871;
+ //BA.debugLineNum = 589871;BA.debugLine="label_pay.Text =\"$500 + \"&(ti-15)&\" * $30\"&\" =";
+parent.mostCurrent._label_pay.setText(BA.ObjectToCharSequence("$500 + "+BA.NumberToString((_ti-15))+" * $30"+" = $"+(BA.NumberToString((500+(_ti-15)*30)))));
+ if (true) break;
+
+case 27:
+//C
+this.state = 28;
+;
+ if (true) break;
+
+case 28:
+//C
+this.state = -1;
+;
+RDebugUtils.currentLine=589876;
+ //BA.debugLineNum = 589876;BA.debugLine="End Sub";
+if (true) break;
+
+            }
+        }
+    }
 }
 }

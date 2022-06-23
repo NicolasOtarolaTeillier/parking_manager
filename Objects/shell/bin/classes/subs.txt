@@ -2,37 +2,45 @@ b4a.EjemploSQLite
 0
 0
 0
-main,activity_create,1,0,47,67
-,tabhost1,,customer_background,,customer_button_patent,,customer_label_patent,,customer_text_patent,,parked_button,,parked_listview,,name_db,,tables_db,,table_cars,,sqlite
-,tabhost1,,customer_background,,customer_button_patent,,customer_label_patent,,customer_text_patent,,parked_button,,parked_listview,,name_db,,table_cars
+main,activity_create,1,0,63,83
+,tabhost1,,customer_background,,customer_button_patent,,customer_delete_table,,customer_label_patent,,customer_text_patent,,parked_button,,parked_listview,,info_background,,info_label_date,,info_label_end,,info_label_patent,,info_label_pay,,info_label_start,,info_label_time,,label_date,,label_end,,label_patent,,label_pay,,label_start,,label_time,,name_db,,tables_db,,table_cars,,sqlite
+,tabhost1,,customer_background,,customer_button_patent,,customer_delete_table,,customer_label_patent,,customer_text_patent,,parked_button,,parked_listview,,info_background,,info_label_date,,info_label_end,,info_label_patent,,info_label_pay,,info_label_start,,info_label_time,,label_date,,label_end,,label_patent,,label_pay,,label_start,,label_time,,name_db,,table_cars
 ,create_db
-main,create_db,0,0,69,81
+main,create_db,0,0,85,97
 ,sqlite
 
 
-main,activity_pause,0,0,87,89
+main,activity_pause,0,0,103,105
 
 
 
-main,activity_resume,0,0,83,85
+main,activity_resume,0,0,99,101
 
 
 
-main,customer_button_patent_click,1,1,91,106
+main,customer_button_patent_click,1,0,107,125
 ,customer_text_patent,,xui,,name_db,,tables_db,,sqlite
 
 ,insert_into_table
-main,insert_into_table,0,0,108,121
+main,insert_into_table,0,0,127,140
 ,sqlite,,xui
 
 
-main,globals,0,1,21,45
+main,customer_delete_table_click,0,0,213,236
+,tables_db,,sqlite,,name_db
+
+
+main,globals,0,1,21,61
 
 
 
-main,parked_button_click,0,1,124,139
+main,parked_button_click,0,0,143,157
 ,query_selector,,sqlite,,tables_db,,parked_listview
 ,query_selector
+
+main,parked_listview_itemclick,1,0,159,211
+,xui,,tabhost1,,query_selector,,label_patent,,label_date,,label_start,,label_end,,label_time,,label_pay
+
 
 main,process_globals,0,1,15,19
 

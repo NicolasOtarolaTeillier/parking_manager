@@ -1,6 +1,6 @@
 ﻿ModuleBookmarks0=
 ModuleBreakpoints0=
-ModuleClosedNodes0=7,8
-NavigationStack=Main,Process_Globals,16,0,Main,create_db,73,6,Diseñador Visual,page_info.bal,-100,2,Main,Activity_Create,51,6,Diseñador Visual,page_customer.bal,-100,6,Main,Globals,37,6,Diseñador Visual,page_parked.bal,-100,6,Main,insert_into_table,119,6,Main,customer_button_patent_Click,100,6,Main,parked_button_Click,134,6
+ModuleClosedNodes0=1,2,3,5,6,7,8,11,13
+NavigationStack=Main,Activity_Create,46,0,Main,customeR_delete_Table_click,151,0,Main,insert_into_table,109,0,Diseñador Visual,page_parked.bal,-100,6,Diseñador Visual,page_info.bal,-100,6,Diseñador Visual,page_customer.bal,-100,6,Main,customer_button_patent_Click,120,6,Main,Globals,40,6,Main,parked_button_Click,142,6,Main,parked_listview_ItemClick,182,6
 SelectedBuild=0
 VisibleModules=

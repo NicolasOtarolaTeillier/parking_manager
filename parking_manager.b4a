@@ -51,15 +51,31 @@ Sub Globals
 	Private customer_background As Label
 	Private customer_text_patent As EditText
 	Private customer_button_patent As Button
+	Private customer_delete_table As Button
 	
 	
 	'page parked
 	Private parked_listview As ListView
-
 	Private parked_button As Button
 	Private query_selector As Cursor
 	
+
 	
+	Private info_background As Label
+	Private info_label_pay As Label
+	Private info_label_time As Label
+	Private info_label_end As Label
+	Private info_label_start As Label
+	Private info_label_date As Label
+	Private info_label_patent As Label
+	
+	
+	Private label_patent As Label
+	Private label_date As Label
+	Private label_start As Label
+	Private label_end As Label
+	Private label_time As Label
+	Private label_pay As Label
 	
 End Sub
 
@@ -117,10 +133,13 @@ Private Sub customer_button_patent_Click
 	time = DateTime.Now
 	patent = customer_text_patent.Text
 	date = DateTime.GetYear(time)&"/"&DateTime.GetMonth(time)&"/"&DateTime.GetDayOfMonth(time)
-	hour = DateTime.GetHour(time)&":"&DateTime.GetMinute(time)
+	If DateTime.GetMinute(time).As(Int) <= 9 Then
+		hour = DateTime.GetHour(time)&":0"&DateTime.GetMinute(time)
+	Else
+		hour = DateTime.GetHour(time)&":"&DateTime.GetMinute(time)
+	End If
 	insert_into_table(name_db,tables_db.Get(0),col,patent,date,hour,0)
-	customer_text_patent.Text = ""
-	
+	customer_text_patent.Text = ""	
 
 End Sub
 
@@ -129,7 +148,7 @@ Sub insert_into_table (name As String,table As String,col As String,i1 As String
 	SQLite.Initialize(File.DirInternal,name,True)
 	SQLite.BeginTransaction
 	Try	
-		SQLite.ExecNonQuery2("INSERT INTO "&table&" "&col&" VALUES (?,?,?,?)", Array As Object(i1,i2,i3,i4))
+		SQLite.ExecNonQuery2("INSERT INTO "&table&" "&col&" VALUES (?,?,?,?)", Array As Object(i1.ToUpperCase,i2,i3,i4))
 		SQLite.TransactionSuccessful
 		xui.MsgboxAsync("Patent: "&i1&CRLF&"Date: "&i2&CRLF&"Hour: "&i3&CRLF&"Payment: "&i4,"Insert into: "&table&", successfully")
 	Catch
@@ -141,9 +160,8 @@ End Sub
 
 
 Private Sub parked_button_Click
-	query_selector=SQLite.ExecQuery("SELECT * FROM "&tables_db.Get(0)&" WHERE payment=0 ORDER BY id ASC")
+	query_selector=SQLite.ExecQuery("SELECT * FROM "&tables_db.Get(0)&" WHERE payment=0 ORDER BY patent ASC")
 	parked_listview.clear
-	
 	If query_selector.RowCount>0 Then
 		
 		For i=0 To query_selector.RowCount-1
@@ -152,7 +170,86 @@ Private Sub parked_button_Click
 			p=query_selector.GetString("patent")
 			d=query_selector.GetString("date")
 			h=query_selector.GetString("hour")
-			parked_listview.AddSingleLine(p&"    "&d&"    "&h)
+			parked_listview.AddSingleLine(p&" "&d&" "&h)
 		Next
 	End If
+End Sub
+
+Private Sub parked_listview_ItemClick (Position As Int, Value As Object)
+	'ToastMessageShow("You select this: "&CRLF&Value,True)
+	Dim sf As Object = Msgbox2Async("Press YES to acept or NO to decline","Do you want to pay?","YES","CANCEL","NO",Null,True)
+	Wait For (sf) Msgbox_Result (Result As Int)
+	If Result = xui.DialogResponse_Positive Then
+		TabHost1.CurrentTab = (TabHost1.CurrentTab + 1) Mod TabHost1.TabCount 'switch to the next tab.
+		query_selector.Position=Position
+		Dim time As String
+		time = DateTime.Now
+		Dim mi,ho,ti As Int
+		Dim da As String
+		
+		
+		label_patent.Text = query_selector.GetString("patent")
+		label_date.Text = query_selector.GetString("date")
+		label_start.Text = query_selector.GetString("hour")
+		
+		da = DateTime.GetYear(time)&"/"&DateTime.GetMonth(time)&"/"&DateTime.GetDayOfMonth(time)
+		If da <> query_selector.GetString("date") Then
+			Log("distintos dias")
+			label_end.Text = "23:59"
+		Else
+			label_end.Text = DateTime.GetHour(time).As(String)&":"&DateTime.GetMinute(time).As(String)	
+		End If
+		ho = (label_end.Text.SubString2(0,2)).As(Int)-(label_start.Text.SubString2(0,2)).As(Int)
+		mi = (label_end.Text.SubString2(3,5)).As(Int)-(label_start.Text.SubString2(3,5)).As(Int)
+'			Log(label_end.Text.SubString2(0,2))
+'			Log(label_start.Text.SubString2(0,2))
+'			Log(label_end.Text.SubString2(3,5))
+'			Log(label_start.Text.SubString2(3,5))
+'			Log(ho)
+'			Log(ho)
+		If ho = 0 Then
+			ti = ho*60 + mi
+		Else
+			If mi >= 0 Then
+				ti = ho*60 + mi
+			Else
+				ho = ho - 1
+				mi = mi + 60
+				ti = ho*60 + mi
+			End If
+		End If
+		label_time.Text = ti&" minutes"
+		If ti < 15 Then
+			label_pay.Text = "$ 500"
+		Else
+			label_pay.Text ="$500 + "&(ti-15)&" * $30"&" = $"&(500 +(ti-15)*30).As(String)
+		End If
+'		Log(da)
+'		Log(query_selector.GetString("date"))	
+	End If
+End Sub
+
+Private Sub customer_delete_table_click
+	Msgbox2Async("¿Desea borrar la tabla "&tables_db.Get(0)&"?","Atención!","Si","Cancelar","No",Null,True)
+	Wait For Msgbox_Result(Result As Int)
+	If Result = DialogResponse.POSITIVE Then
+		'Inicialización de la base de datos
+		SQLite.Initialize(File.DirInternal,name_db,True)
+		
+		'Creación de una tabla
+		SQLite.BeginTransaction
+		Try
+			SQLite.ExecNonQuery("DELETE FROM "&tables_db.Get(0))
+			'xui.MsgboxAsync("Tabla Eliminada","Mensaje")
+			ToastMessageShow("Registros de la tabla: "&tables_db.Get(0)&", eliminados",True)
+			SQLite.TransactionSuccessful
+		Catch
+			Log("ERROR al elminar tabla: "&tables_db.Get(0)&" ,"&LastException.Message)
+		End Try
+		SQLite.EndTransaction
+
+	End If
+	
+	
+	
 End Sub
