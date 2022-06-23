@@ -56,12 +56,19 @@ public boolean isSingleton() {
 	}
 public static RemoteObject __c = RemoteObject.declareNull("anywheresoftware.b4a.keywords.Common");
 public static RemoteObject _xui = RemoteObject.declareNull("anywheresoftware.b4a.objects.B4XViewWrapper.XUI");
-public static RemoteObject _db = RemoteObject.declareNull("anywheresoftware.b4a.sql.SQL");
+public static RemoteObject _sqlite = RemoteObject.declareNull("anywheresoftware.b4a.sql.SQL");
 public static RemoteObject _tabhost1 = RemoteObject.declareNull("anywheresoftware.b4a.objects.TabHostWrapper");
 public static RemoteObject _name_db = RemoteObject.createImmutable("");
 public static RemoteObject _tables_db = RemoteObject.declareNull("anywheresoftware.b4a.objects.collections.List");
 public static RemoteObject _table_cars = RemoteObject.createImmutable("");
+public static RemoteObject _customer_label_patent = RemoteObject.declareNull("anywheresoftware.b4a.objects.LabelWrapper");
+public static RemoteObject _customer_background = RemoteObject.declareNull("anywheresoftware.b4a.objects.LabelWrapper");
+public static RemoteObject _customer_text_patent = RemoteObject.declareNull("anywheresoftware.b4a.objects.EditTextWrapper");
+public static RemoteObject _customer_button_patent = RemoteObject.declareNull("anywheresoftware.b4a.objects.ButtonWrapper");
+public static RemoteObject _parked_listview = RemoteObject.declareNull("anywheresoftware.b4a.objects.ListViewWrapper");
+public static RemoteObject _parked_button = RemoteObject.declareNull("anywheresoftware.b4a.objects.ButtonWrapper");
+public static RemoteObject _query_selector = RemoteObject.declareNull("anywheresoftware.b4a.sql.SQL.CursorWrapper");
   public Object[] GetGlobals() {
-		return new Object[] {"Activity",main.mostCurrent._activity,"DB",main._db,"name_db",main.mostCurrent._name_db,"TabHost1",main.mostCurrent._tabhost1,"table_cars",main.mostCurrent._table_cars,"tables_db",main.mostCurrent._tables_db,"xui",main._xui};
+		return new Object[] {"Activity",main.mostCurrent._activity,"customer_background",main.mostCurrent._customer_background,"customer_button_patent",main.mostCurrent._customer_button_patent,"customer_label_patent",main.mostCurrent._customer_label_patent,"customer_text_patent",main.mostCurrent._customer_text_patent,"name_db",main.mostCurrent._name_db,"parked_button",main.mostCurrent._parked_button,"parked_listview",main.mostCurrent._parked_listview,"query_selector",main.mostCurrent._query_selector,"SQLite",main._sqlite,"TabHost1",main.mostCurrent._tabhost1,"table_cars",main.mostCurrent._table_cars,"tables_db",main.mostCurrent._tables_db,"xui",main._xui};
 }
 }

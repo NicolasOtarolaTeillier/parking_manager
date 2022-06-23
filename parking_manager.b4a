@@ -3,18 +3,16 @@ File1=Main.bal
 File2=page_customer.bal
 File3=page_info.bal
 File4=page_parked.bal
-File5=page_pay.bal
 FileGroup1=Default Group
 FileGroup2=Default Group
 FileGroup3=Default Group
 FileGroup4=Default Group
-FileGroup5=Default Group
 Group=Default Group
 Library1=core
 Library2=sql
 Library3=xui
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
-NumberOfFiles=5
+NumberOfFiles=4
 NumberOfLibraries=3
 NumberOfModules=0
 Version=11.5
@@ -35,7 +33,7 @@ Version=11.5
 
 Sub Process_Globals
 	Private xui As XUI
-	Private DB As SQL
+	Private SQLite As SQL
 	
 End Sub
 
@@ -47,45 +45,60 @@ Sub Globals
 	Private name_db As String
 	Private tables_db  As List
 	Private table_cars As String
+	
+	' page customer
+	Private customer_label_patent As Label
+	Private customer_background As Label
+	Private customer_text_patent As EditText
+	Private customer_button_patent As Button
+	
+	
+	'page parked
+	Private parked_listview As ListView
 
+	Private parked_button As Button
+	Private query_selector As Cursor
+	
+	
+	
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
+	
 	Activity.LoadLayout("Main")
 	
 	' tabhost
 	TabHost1.AddTab("Customer","page_customer.bal")
 	TabHost1.AddTab("Parked","page_parked.bal")
-	'TabHost1.AddTab("Pay","page_pay.bal")
 	TabHost1.AddTab("Info","page_info.bal")
 	
 	' database
-	name_db = "parking_manager.db"
+	name_db = "parking_manager2.db"
 	
 	' database table_cars
-	tables_db.Initialize
-	tables_db.AddAll(Array As String ("cars"))
-	table_cars = "(id INTEGER PRIMARY KEY AUTOINCREMENT, patente TEXT, fecha TEXT, hora TEXT)"
-	create_db(name_db,tables_db.Get(0), table_cars)
+	If FirstTime Then
+		tables_db.Initialize
+		tables_db.AddAll(Array As String ("cars"))
+		table_cars = "(id INTEGER PRIMARY KEY AUTOINCREMENT, patent TEXT, date TEXT, hour TEXT, payment FLOAT)"
+		create_db(name_db,tables_db.Get(0), table_cars)
+	End If
+	
 End Sub
 
 Sub create_db (name As String, table As String, col As String)
-	Log(name)
-	Log(table)
-	Log(col)
-	DB.Initialize(File.DirInternal,name,True)
-	DB.BeginTransaction
+	SQLite.Initialize(File.DirInternal,name,True)
+	SQLite.BeginTransaction
 	Try
-		DB.ExecNonQuery("CREATE TABLE IF NOT EXISTS "&table&" "&col)
-		DB.TransactionSuccessful
-		ToastMessageShow("Tabla: "&table&", creada",False)
+		SQLite.ExecNonQuery("CREATE TABLE IF NOT EXISTS "&table&" "&col)
+		SQLite.TransactionSuccessful
+		ToastMessageShow("Successfully created '"&table&"' table",True)
 	Catch
-		ToastMessageShow("Error en la creación de la Tabla: "&table,False)
-		Log("ERROR en la creación de la tabla:"&table&", "&LastException.Message)
+		ToastMessageShow("Table creation failed: "&table,True)
+		Log("Table creation failed:"&table&", "&LastException.Message)
 	End Try
-	DB.EndTransaction
+	SQLite.EndTransaction
 End Sub
- 
+
 Sub Activity_Resume
 
 End Sub
@@ -94,4 +107,52 @@ Sub Activity_Pause (UserClosed As Boolean)
 
 End Sub
 
+Private Sub customer_button_patent_Click
+	If customer_text_patent.Text = "" Then
+		xui.MsgboxAsync("The patent does not exist, please enter a patent.","Patent Error!")
+		Return
+	End If
+	Dim col,patent,date,hour,time As String
+	col = "(patent, date, hour, payment)"
+	time = DateTime.Now
+	patent = customer_text_patent.Text
+	date = DateTime.GetYear(time)&"/"&DateTime.GetMonth(time)&"/"&DateTime.GetDayOfMonth(time)
+	hour = DateTime.GetHour(time)&":"&DateTime.GetMinute(time)
+	insert_into_table(name_db,tables_db.Get(0),col,patent,date,hour,0)
+	customer_text_patent.Text = ""
+	
 
+End Sub
+
+Sub insert_into_table (name As String,table As String,col As String,i1 As String,i2 As String,i3 As String,i4 As String)
+
+	SQLite.Initialize(File.DirInternal,name,True)
+	SQLite.BeginTransaction
+	Try	
+		SQLite.ExecNonQuery2("INSERT INTO "&table&" "&col&" VALUES (?,?,?,?)", Array As Object(i1,i2,i3,i4))
+		SQLite.TransactionSuccessful
+		xui.MsgboxAsync("Patent: "&i1&CRLF&"Date: "&i2&CRLF&"Hour: "&i3&CRLF&"Payment: "&i4,"Insert into: "&table&", successfully")
+	Catch
+		ToastMessageShow("Insert into failed: "&table,True)
+		Log("Insert into failedd:"&table&", "&LastException.Message)
+	End Try
+	SQLite.EndTransaction
+End Sub
+
+
+Private Sub parked_button_Click
+	query_selector=SQLite.ExecQuery("SELECT * FROM "&tables_db.Get(0)&" WHERE payment=0 ORDER BY id ASC")
+	parked_listview.clear
+	
+	If query_selector.RowCount>0 Then
+		
+		For i=0 To query_selector.RowCount-1
+			query_selector.Position=i
+			Dim p,d,h As String
+			p=query_selector.GetString("patent")
+			d=query_selector.GetString("date")
+			h=query_selector.GetString("hour")
+			parked_listview.AddSingleLine(p&"    "&d&"    "&h)
+		Next
+	End If
+End Sub

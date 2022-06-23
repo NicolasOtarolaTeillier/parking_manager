@@ -2,25 +2,37 @@ b4a.EjemploSQLite
 0
 0
 0
-main,activity_create,1,0,32,49
-,tabhost1,,name_db,,tables_db,,table_cars,,db
-,tabhost1,,name_db,,table_cars
+main,activity_create,1,0,47,67
+,tabhost1,,customer_background,,customer_button_patent,,customer_label_patent,,customer_text_patent,,parked_button,,parked_listview,,name_db,,tables_db,,table_cars,,sqlite
+,tabhost1,,customer_background,,customer_button_patent,,customer_label_patent,,customer_text_patent,,parked_button,,parked_listview,,name_db,,table_cars
 ,create_db
-main,create_db,0,0,51,66
-,db
+main,create_db,0,0,69,81
+,sqlite
 
 
-main,activity_pause,0,0,72,74
-
-
-
-main,activity_resume,0,0,68,70
+main,activity_pause,0,0,87,89
 
 
 
-main,globals,0,1,21,30
+main,activity_resume,0,0,83,85
 
 
+
+main,customer_button_patent_click,1,1,91,106
+,customer_text_patent,,xui,,name_db,,tables_db,,sqlite
+
+,insert_into_table
+main,insert_into_table,0,0,108,121
+,sqlite,,xui
+
+
+main,globals,0,1,21,45
+
+
+
+main,parked_button_click,0,1,124,139
+,query_selector,,sqlite,,tables_db,,parked_listview
+,query_selector
 
 main,process_globals,0,1,15,19
 
