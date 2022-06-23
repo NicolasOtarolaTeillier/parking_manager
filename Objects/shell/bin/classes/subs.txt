@@ -18,11 +18,11 @@ main,activity_resume,0,0,107,109
 
 
 
-main,customer_button_patent_click,1,1,115,169
+main,customer_button_patent_click,1,0,115,170
 ,customer_text_patent,,xui,,label_hour,,label_minute,,name_db,,tables_db,,sqlite
 
 ,insert_into_table
-main,insert_into_table,0,0,171,184
+main,insert_into_table,0,0,172,185
 ,sqlite,,xui
 
 
@@ -46,7 +46,7 @@ main,parked_button_click,0,0,187,202
 ,query_selector,,sqlite,,tables_db,,parked_listview,,label_main
 ,query_selector
 
-main,parked_leave_click,0,0,346,367
+main,parked_leave_click,0,0,355,376
 ,query_selector,,sqlite,,tables_db,,parked_listview,,label_main
 ,query_selector
 
@@ -54,7 +54,7 @@ main,parked_listview_itemclick,1,0,204,261
 ,query_selector,,xui,,tabhost1,,label_id,,label_patent,,label_date,,label_start,,label_end,,label_time,,label_pay
 
 
-main,parked_today_click,0,0,369,393
+main,parked_today_click,0,0,378,402
 ,query_selector,,sqlite,,tables_db,,parked_listview,,label_main
 ,query_selector
 
@@ -62,7 +62,7 @@ main,process_globals,0,1,15,19
 
 
 
-main,tabhost1_tabchanged,0,0,329,344
-,tabhost1,,label_main,,parked_listview
+main,tabhost1_tabchanged,0,0,329,353
+,tabhost1,,label_main,,parked_listview,,label_id,,label_patent,,label_date,,label_start,,label_end,,label_time,,label_pay
 
 

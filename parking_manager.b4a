@@ -27,7 +27,7 @@ Version=11.5
 #End Region
 
 #Region  Activity Attributes 
-	#FullScreen: True
+	#FullScreen: False
 	#IncludeTitle: False
 #End Region
 
@@ -132,6 +132,7 @@ Sub Activity_Pause (UserClosed As Boolean)
 End Sub
 
 Private Sub customer_button_patent_Click
+	
 	If customer_text_patent.Text = "" Then
 		xui.MsgboxAsync("The patent does not exist, please enter a patent.","Patent Error!")
 		Return
@@ -168,15 +169,15 @@ Private Sub customer_button_patent_Click
 		
 		If label_hour.Text.As(Int) <= 9 Then
 			If label_minute.Text.As(Int) <=9 Then
-				hour = "0"&label_hour.Text&":0"&label_minute.Text
+				hour = "0"&label_hour.Text.as(Int)&":0"&label_minute.Text.as(Int)
 			Else
-				hour = "0"&label_hour.Text&":"&label_minute.Text
+				hour = "0"&label_hour.Text.as(Int)&":"&label_minute.Text.as(Int)
 			End If
 		Else
 			If label_minute.Text.As(Int) <=9 Then
-				hour = label_hour.Text&":0"&label_minute.Text
+				hour = label_hour.Text.as(Int)&":0"&label_minute.Text.as(Int)
 			Else
-				hour = label_hour.Text&":"&label_minute.Text
+				hour = label_hour.Text.as(Int)&":"&label_minute.Text.as(Int)
 			End If
 		End If
 	End If
@@ -202,7 +203,6 @@ Sub insert_into_table (name As String,table As String,col As String,i1 As String
 	SQLite.EndTransaction
 End Sub
 
-
 Private Sub parked_button_Click
 	query_selector=SQLite.ExecQuery("SELECT * FROM "&tables_db.Get(0)&" WHERE payment=0 ORDER BY patent ASC")
 	parked_listview.clear
@@ -223,7 +223,7 @@ End Sub
 Private Sub parked_listview_ItemClick (Position As Int, Value As Object)
 	'ToastMessageShow("You select this: "&CRLF&Value,True)
 	query_selector.Position=Position
-	If query_selector.GetString("payment") <> 0 Then
+	If query_selector.GetString("payment") <> 0 And query_selector.GetString("payment") <> "" Then
 		Return
 	End If
 	
@@ -270,10 +270,10 @@ Private Sub parked_listview_ItemClick (Position As Int, Value As Object)
 		label_time.Text = ti&" minutes"
 		label_time.Tag = ti
 		If ti < 15 Then
-			label_pay.Text = "500"
+			label_pay.Text = "$ 500 pesos"
 			label_pay.Tag = "500"
 		Else
-			label_pay.Text ="$500 + "&(ti-15)&" * $30"&" = $"&(500 +(ti-15)*30).As(String)
+			label_pay.Text ="$500 + "&(ti-15)&" * $30"&" = $"&(500 +(ti-15)*30).As(String)&" pesos"
 			label_pay.Tag = (500 +(ti-15)*30).As(String)
 		End If	
 	End If
@@ -354,6 +354,15 @@ Private Sub TabHost1_TabChanged
 	If TabHost1.CurrentTab = 1 Then
 		label_main.Text = "List cars"
 		parked_listview.Clear
+		label_id.Text = ""
+		label_patent.Text = ""
+		label_date.Text = ""
+		label_start.Text = ""
+		label_end.Text = ""
+		label_time.Text = "0 minutes"
+		label_time.Tag = ""
+		label_pay.Text = "$ 0 pesos"
+		label_pay.Tag = ""
 	End If
 	
 	If TabHost1.CurrentTab = 2 Then
@@ -371,15 +380,15 @@ Private Sub parked_leave_Click
 	query_selector=SQLite.ExecQuery("SELECT * FROM "&tables_db.Get(0)&" WHERE date='"&da&"' and payment > 0 ORDER BY patent ASC")
 	parked_listview.clear
 	If query_selector.RowCount>0 Then
-		
 		For i=0 To query_selector.RowCount-1
 			query_selector.Position=i
 			Dim p,d,h,pay As String
 			p=query_selector.GetString("patent")
-			d=query_selector.GetString("date")
-			h=query_selector.GetString("hour")
+			'd=query_selector.GetString("date")
+			'h=query_selector.GetString("hour")
 			pay=query_selector.GetString("payment")
-			parked_listview.AddSingleLine(p&" "&d&" "&h&" "&pay)
+			'parked_listview.AddSingleLine(p&" "&d&" "&h&" "&pay)
+			parked_listview.AddSingleLine(p&" | "&pay)
 		Next
 	End If
 	label_main.Text = "List of cars leave parked today"

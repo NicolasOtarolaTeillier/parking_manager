@@ -124,7 +124,7 @@ Debug.ShouldStop(16);
 main.mostCurrent.__c.runVoidMethod ("ToastMessageShow",(Object)(BA.ObjectToCharSequence(RemoteObject.concat(RemoteObject.createImmutable("Table creation failed: "),_table))),(Object)(main.mostCurrent.__c.getField(true,"True")));
  BA.debugLineNum = 102;BA.debugLine="Log(\"Table creation failed:\"&table&\", \"&LastExce";
 Debug.ShouldStop(32);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","2196617",RemoteObject.concat(RemoteObject.createImmutable("Table creation failed:"),_table,RemoteObject.createImmutable(", "),main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage")),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5196617",RemoteObject.concat(RemoteObject.createImmutable("Table creation failed:"),_table,RemoteObject.createImmutable(", "),main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage")),0);
  };
  BA.debugLineNum = 104;BA.debugLine="SQLite.EndTransaction";
 Debug.ShouldStop(128);
@@ -150,128 +150,128 @@ RemoteObject _hour = RemoteObject.createImmutable("");
 RemoteObject _time = RemoteObject.createImmutable("");
  BA.debugLineNum = 115;BA.debugLine="Private Sub customer_button_patent_Click";
 Debug.ShouldStop(262144);
- BA.debugLineNum = 116;BA.debugLine="If customer_text_patent.Text = \"\" Then";
-Debug.ShouldStop(524288);
-if (RemoteObject.solveBoolean("=",main.mostCurrent._customer_text_patent.runMethod(true,"getText"),BA.ObjectToString(""))) { 
- BA.debugLineNum = 117;BA.debugLine="xui.MsgboxAsync(\"The patent does not exist, plea";
+ BA.debugLineNum = 117;BA.debugLine="If customer_text_patent.Text = \"\" Then";
 Debug.ShouldStop(1048576);
-main._xui.runVoidMethod ("MsgboxAsync",main.processBA,(Object)(BA.ObjectToCharSequence("The patent does not exist, please enter a patent.")),(Object)(BA.ObjectToCharSequence(RemoteObject.createImmutable("Patent Error!"))));
- BA.debugLineNum = 118;BA.debugLine="Return";
+if (RemoteObject.solveBoolean("=",main.mostCurrent._customer_text_patent.runMethod(true,"getText"),BA.ObjectToString(""))) { 
+ BA.debugLineNum = 118;BA.debugLine="xui.MsgboxAsync(\"The patent does not exist, plea";
 Debug.ShouldStop(2097152);
+main._xui.runVoidMethod ("MsgboxAsync",main.processBA,(Object)(BA.ObjectToCharSequence("The patent does not exist, please enter a patent.")),(Object)(BA.ObjectToCharSequence(RemoteObject.createImmutable("Patent Error!"))));
+ BA.debugLineNum = 119;BA.debugLine="Return";
+Debug.ShouldStop(4194304);
 if (true) return RemoteObject.createImmutable("");
  };
- BA.debugLineNum = 120;BA.debugLine="Dim col,patent,date,hour,time As String";
-Debug.ShouldStop(8388608);
+ BA.debugLineNum = 121;BA.debugLine="Dim col,patent,date,hour,time As String";
+Debug.ShouldStop(16777216);
 _col = RemoteObject.createImmutable("");Debug.locals.put("col", _col);
 _patent = RemoteObject.createImmutable("");Debug.locals.put("patent", _patent);
 _date = RemoteObject.createImmutable("");Debug.locals.put("date", _date);
 _hour = RemoteObject.createImmutable("");Debug.locals.put("hour", _hour);
 _time = RemoteObject.createImmutable("");Debug.locals.put("time", _time);
- BA.debugLineNum = 121;BA.debugLine="col = \"(patent, date, hour, end, time, payment)\"";
-Debug.ShouldStop(16777216);
-_col = BA.ObjectToString("(patent, date, hour, end, time, payment)");Debug.locals.put("col", _col);
- BA.debugLineNum = 122;BA.debugLine="time = DateTime.Now";
+ BA.debugLineNum = 122;BA.debugLine="col = \"(patent, date, hour, end, time, payment)\"";
 Debug.ShouldStop(33554432);
-_time = BA.NumberToString(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"getNow"));Debug.locals.put("time", _time);
- BA.debugLineNum = 123;BA.debugLine="patent = customer_text_patent.Text";
+_col = BA.ObjectToString("(patent, date, hour, end, time, payment)");Debug.locals.put("col", _col);
+ BA.debugLineNum = 123;BA.debugLine="time = DateTime.Now";
 Debug.ShouldStop(67108864);
-_patent = main.mostCurrent._customer_text_patent.runMethod(true,"getText");Debug.locals.put("patent", _patent);
- BA.debugLineNum = 124;BA.debugLine="date = DateTime.GetYear(time)&\"/\"&DateTime.GetMon";
+_time = BA.NumberToString(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"getNow"));Debug.locals.put("time", _time);
+ BA.debugLineNum = 124;BA.debugLine="patent = customer_text_patent.Text";
 Debug.ShouldStop(134217728);
-_date = RemoteObject.concat(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetYear",(Object)(BA.numberCast(long.class, _time))),RemoteObject.createImmutable("/"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetMonth",(Object)(BA.numberCast(long.class, _time))),RemoteObject.createImmutable("/"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetDayOfMonth",(Object)(BA.numberCast(long.class, _time))));Debug.locals.put("date", _date);
- BA.debugLineNum = 125;BA.debugLine="If label_hour.Text = \"\" Then";
+_patent = main.mostCurrent._customer_text_patent.runMethod(true,"getText");Debug.locals.put("patent", _patent);
+ BA.debugLineNum = 125;BA.debugLine="date = DateTime.GetYear(time)&\"/\"&DateTime.GetMon";
 Debug.ShouldStop(268435456);
-if (RemoteObject.solveBoolean("=",main.mostCurrent._label_hour.runMethod(true,"getText"),BA.ObjectToString(""))) { 
- BA.debugLineNum = 126;BA.debugLine="If DateTime.GetMinute(time).As(Int) <= 9 Then";
+_date = RemoteObject.concat(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetYear",(Object)(BA.numberCast(long.class, _time))),RemoteObject.createImmutable("/"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetMonth",(Object)(BA.numberCast(long.class, _time))),RemoteObject.createImmutable("/"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetDayOfMonth",(Object)(BA.numberCast(long.class, _time))));Debug.locals.put("date", _date);
+ BA.debugLineNum = 126;BA.debugLine="If label_hour.Text = \"\" Then";
 Debug.ShouldStop(536870912);
-if (RemoteObject.solveBoolean("k",(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetMinute",(Object)(BA.numberCast(long.class, _time)))),BA.numberCast(double.class, 9))) { 
- BA.debugLineNum = 127;BA.debugLine="If DateTime.GetHour(time).As(Int) <= 9 Then";
+if (RemoteObject.solveBoolean("=",main.mostCurrent._label_hour.runMethod(true,"getText"),BA.ObjectToString(""))) { 
+ BA.debugLineNum = 127;BA.debugLine="If DateTime.GetMinute(time).As(Int) <= 9 Then";
 Debug.ShouldStop(1073741824);
-if (RemoteObject.solveBoolean("k",(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetHour",(Object)(BA.numberCast(long.class, _time)))),BA.numberCast(double.class, 9))) { 
- BA.debugLineNum = 128;BA.debugLine="hour = \"0\"&DateTime.GetHour(time)&\":0\"&DateTim";
+if (RemoteObject.solveBoolean("k",(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetMinute",(Object)(BA.numberCast(long.class, _time)))),BA.numberCast(double.class, 9))) { 
+ BA.debugLineNum = 128;BA.debugLine="If DateTime.GetHour(time).As(Int) <= 9 Then";
 Debug.ShouldStop(-2147483648);
+if (RemoteObject.solveBoolean("k",(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetHour",(Object)(BA.numberCast(long.class, _time)))),BA.numberCast(double.class, 9))) { 
+ BA.debugLineNum = 129;BA.debugLine="hour = \"0\"&DateTime.GetHour(time)&\":0\"&DateTim";
+Debug.ShouldStop(1);
 _hour = RemoteObject.concat(RemoteObject.createImmutable("0"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetHour",(Object)(BA.numberCast(long.class, _time))),RemoteObject.createImmutable(":0"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetMinute",(Object)(BA.numberCast(long.class, _time))));Debug.locals.put("hour", _hour);
  }else {
- BA.debugLineNum = 130;BA.debugLine="hour = DateTime.GetHour(time)&\":0\"&DateTime.Ge";
-Debug.ShouldStop(2);
+ BA.debugLineNum = 131;BA.debugLine="hour = DateTime.GetHour(time)&\":0\"&DateTime.Ge";
+Debug.ShouldStop(4);
 _hour = RemoteObject.concat(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetHour",(Object)(BA.numberCast(long.class, _time))),RemoteObject.createImmutable(":0"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetMinute",(Object)(BA.numberCast(long.class, _time))));Debug.locals.put("hour", _hour);
  };
  }else {
- BA.debugLineNum = 133;BA.debugLine="If DateTime.GetHour(time).As(Int) <= 9 Then";
-Debug.ShouldStop(16);
-if (RemoteObject.solveBoolean("k",(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetHour",(Object)(BA.numberCast(long.class, _time)))),BA.numberCast(double.class, 9))) { 
- BA.debugLineNum = 134;BA.debugLine="hour = \"0\"&DateTime.GetHour(time)&\":\"&DateTime";
+ BA.debugLineNum = 134;BA.debugLine="If DateTime.GetHour(time).As(Int) <= 9 Then";
 Debug.ShouldStop(32);
+if (RemoteObject.solveBoolean("k",(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetHour",(Object)(BA.numberCast(long.class, _time)))),BA.numberCast(double.class, 9))) { 
+ BA.debugLineNum = 135;BA.debugLine="hour = \"0\"&DateTime.GetHour(time)&\":\"&DateTime";
+Debug.ShouldStop(64);
 _hour = RemoteObject.concat(RemoteObject.createImmutable("0"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetHour",(Object)(BA.numberCast(long.class, _time))),RemoteObject.createImmutable(":"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetMinute",(Object)(BA.numberCast(long.class, _time))));Debug.locals.put("hour", _hour);
  }else {
- BA.debugLineNum = 136;BA.debugLine="hour = DateTime.GetHour(time)&\":\"&DateTime.Get";
-Debug.ShouldStop(128);
+ BA.debugLineNum = 137;BA.debugLine="hour = DateTime.GetHour(time)&\":\"&DateTime.Get";
+Debug.ShouldStop(256);
 _hour = RemoteObject.concat(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetHour",(Object)(BA.numberCast(long.class, _time))),RemoteObject.createImmutable(":"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetMinute",(Object)(BA.numberCast(long.class, _time))));Debug.locals.put("hour", _hour);
  };
  };
  }else {
- BA.debugLineNum = 140;BA.debugLine="If label_minute.Text = \"\" Or label_minute.Text.A";
-Debug.ShouldStop(2048);
-if (RemoteObject.solveBoolean("=",main.mostCurrent._label_minute.runMethod(true,"getText"),BA.ObjectToString("")) || RemoteObject.solveBoolean("<",(BA.numberCast(int.class, main.mostCurrent._label_minute.runMethod(true,"getText"))),BA.numberCast(double.class, 0)) || RemoteObject.solveBoolean(">",(BA.numberCast(int.class, main.mostCurrent._label_minute.runMethod(true,"getText"))),BA.numberCast(double.class, 59))) { 
- BA.debugLineNum = 141;BA.debugLine="xui.MsgboxAsync(\"The minutes does not correct,";
+ BA.debugLineNum = 141;BA.debugLine="If label_minute.Text = \"\" Or label_minute.Text.A";
 Debug.ShouldStop(4096);
-main._xui.runVoidMethod ("MsgboxAsync",main.processBA,(Object)(BA.ObjectToCharSequence("The minutes does not correct, please enter a valid minutes.")),(Object)(BA.ObjectToCharSequence(RemoteObject.createImmutable("Minute Error!"))));
- BA.debugLineNum = 142;BA.debugLine="Return";
+if (RemoteObject.solveBoolean("=",main.mostCurrent._label_minute.runMethod(true,"getText"),BA.ObjectToString("")) || RemoteObject.solveBoolean("<",(BA.numberCast(int.class, main.mostCurrent._label_minute.runMethod(true,"getText"))),BA.numberCast(double.class, 0)) || RemoteObject.solveBoolean(">",(BA.numberCast(int.class, main.mostCurrent._label_minute.runMethod(true,"getText"))),BA.numberCast(double.class, 59))) { 
+ BA.debugLineNum = 142;BA.debugLine="xui.MsgboxAsync(\"The minutes does not correct,";
 Debug.ShouldStop(8192);
+main._xui.runVoidMethod ("MsgboxAsync",main.processBA,(Object)(BA.ObjectToCharSequence("The minutes does not correct, please enter a valid minutes.")),(Object)(BA.ObjectToCharSequence(RemoteObject.createImmutable("Minute Error!"))));
+ BA.debugLineNum = 143;BA.debugLine="Return";
+Debug.ShouldStop(16384);
 if (true) return RemoteObject.createImmutable("");
  };
- BA.debugLineNum = 145;BA.debugLine="If label_hour.Text.As(Int) < 0 Or label_hour.Tex";
-Debug.ShouldStop(65536);
-if (RemoteObject.solveBoolean("<",(BA.numberCast(int.class, main.mostCurrent._label_hour.runMethod(true,"getText"))),BA.numberCast(double.class, 0)) || RemoteObject.solveBoolean("g",(BA.numberCast(int.class, main.mostCurrent._label_hour.runMethod(true,"getText"))),BA.numberCast(double.class, 24))) { 
- BA.debugLineNum = 146;BA.debugLine="xui.MsgboxAsync(\"The hour does not correct, ple";
+ BA.debugLineNum = 146;BA.debugLine="If label_hour.Text.As(Int) < 0 Or label_hour.Tex";
 Debug.ShouldStop(131072);
-main._xui.runVoidMethod ("MsgboxAsync",main.processBA,(Object)(BA.ObjectToCharSequence("The hour does not correct, please enter a valid hour.")),(Object)(BA.ObjectToCharSequence(RemoteObject.createImmutable("Hour Error!"))));
- BA.debugLineNum = 147;BA.debugLine="Return";
+if (RemoteObject.solveBoolean("<",(BA.numberCast(int.class, main.mostCurrent._label_hour.runMethod(true,"getText"))),BA.numberCast(double.class, 0)) || RemoteObject.solveBoolean("g",(BA.numberCast(int.class, main.mostCurrent._label_hour.runMethod(true,"getText"))),BA.numberCast(double.class, 24))) { 
+ BA.debugLineNum = 147;BA.debugLine="xui.MsgboxAsync(\"The hour does not correct, ple";
 Debug.ShouldStop(262144);
+main._xui.runVoidMethod ("MsgboxAsync",main.processBA,(Object)(BA.ObjectToCharSequence("The hour does not correct, please enter a valid hour.")),(Object)(BA.ObjectToCharSequence(RemoteObject.createImmutable("Hour Error!"))));
+ BA.debugLineNum = 148;BA.debugLine="Return";
+Debug.ShouldStop(524288);
 if (true) return RemoteObject.createImmutable("");
  };
- BA.debugLineNum = 150;BA.debugLine="If label_hour.Text.As(Int) <= 9 Then";
-Debug.ShouldStop(2097152);
-if (RemoteObject.solveBoolean("k",(BA.numberCast(int.class, main.mostCurrent._label_hour.runMethod(true,"getText"))),BA.numberCast(double.class, 9))) { 
- BA.debugLineNum = 151;BA.debugLine="If label_minute.Text.As(Int) <=9 Then";
+ BA.debugLineNum = 151;BA.debugLine="If label_hour.Text.As(Int) <= 9 Then";
 Debug.ShouldStop(4194304);
-if (RemoteObject.solveBoolean("k",(BA.numberCast(int.class, main.mostCurrent._label_minute.runMethod(true,"getText"))),BA.numberCast(double.class, 9))) { 
- BA.debugLineNum = 152;BA.debugLine="hour = \"0\"&label_hour.Text&\":0\"&label_minute.T";
+if (RemoteObject.solveBoolean("k",(BA.numberCast(int.class, main.mostCurrent._label_hour.runMethod(true,"getText"))),BA.numberCast(double.class, 9))) { 
+ BA.debugLineNum = 152;BA.debugLine="If label_minute.Text.As(Int) <=9 Then";
 Debug.ShouldStop(8388608);
-_hour = RemoteObject.concat(RemoteObject.createImmutable("0"),main.mostCurrent._label_hour.runMethod(true,"getText"),RemoteObject.createImmutable(":0"),main.mostCurrent._label_minute.runMethod(true,"getText"));Debug.locals.put("hour", _hour);
- }else {
- BA.debugLineNum = 154;BA.debugLine="hour = \"0\"&label_hour.Text&\":\"&label_minute.Te";
-Debug.ShouldStop(33554432);
-_hour = RemoteObject.concat(RemoteObject.createImmutable("0"),main.mostCurrent._label_hour.runMethod(true,"getText"),RemoteObject.createImmutable(":"),main.mostCurrent._label_minute.runMethod(true,"getText"));Debug.locals.put("hour", _hour);
- };
- }else {
- BA.debugLineNum = 157;BA.debugLine="If label_minute.Text.As(Int) <=9 Then";
-Debug.ShouldStop(268435456);
 if (RemoteObject.solveBoolean("k",(BA.numberCast(int.class, main.mostCurrent._label_minute.runMethod(true,"getText"))),BA.numberCast(double.class, 9))) { 
- BA.debugLineNum = 158;BA.debugLine="hour = label_hour.Text&\":0\"&label_minute.Text";
-Debug.ShouldStop(536870912);
-_hour = RemoteObject.concat(main.mostCurrent._label_hour.runMethod(true,"getText"),RemoteObject.createImmutable(":0"),main.mostCurrent._label_minute.runMethod(true,"getText"));Debug.locals.put("hour", _hour);
+ BA.debugLineNum = 153;BA.debugLine="hour = \"0\"&label_hour.Text.as(Int)&\":0\"&label_";
+Debug.ShouldStop(16777216);
+_hour = RemoteObject.concat(RemoteObject.createImmutable("0"),(BA.numberCast(int.class, main.mostCurrent._label_hour.runMethod(true,"getText"))),RemoteObject.createImmutable(":0"),(BA.numberCast(int.class, main.mostCurrent._label_minute.runMethod(true,"getText"))));Debug.locals.put("hour", _hour);
  }else {
- BA.debugLineNum = 160;BA.debugLine="hour = label_hour.Text&\":\"&label_minute.Text";
-Debug.ShouldStop(-2147483648);
-_hour = RemoteObject.concat(main.mostCurrent._label_hour.runMethod(true,"getText"),RemoteObject.createImmutable(":"),main.mostCurrent._label_minute.runMethod(true,"getText"));Debug.locals.put("hour", _hour);
+ BA.debugLineNum = 155;BA.debugLine="hour = \"0\"&label_hour.Text.as(Int)&\":\"&label_m";
+Debug.ShouldStop(67108864);
+_hour = RemoteObject.concat(RemoteObject.createImmutable("0"),(BA.numberCast(int.class, main.mostCurrent._label_hour.runMethod(true,"getText"))),RemoteObject.createImmutable(":"),(BA.numberCast(int.class, main.mostCurrent._label_minute.runMethod(true,"getText"))));Debug.locals.put("hour", _hour);
+ };
+ }else {
+ BA.debugLineNum = 158;BA.debugLine="If label_minute.Text.As(Int) <=9 Then";
+Debug.ShouldStop(536870912);
+if (RemoteObject.solveBoolean("k",(BA.numberCast(int.class, main.mostCurrent._label_minute.runMethod(true,"getText"))),BA.numberCast(double.class, 9))) { 
+ BA.debugLineNum = 159;BA.debugLine="hour = label_hour.Text.as(Int)&\":0\"&label_minu";
+Debug.ShouldStop(1073741824);
+_hour = RemoteObject.concat((BA.numberCast(int.class, main.mostCurrent._label_hour.runMethod(true,"getText"))),RemoteObject.createImmutable(":0"),(BA.numberCast(int.class, main.mostCurrent._label_minute.runMethod(true,"getText"))));Debug.locals.put("hour", _hour);
+ }else {
+ BA.debugLineNum = 161;BA.debugLine="hour = label_hour.Text.as(Int)&\":\"&label_minut";
+Debug.ShouldStop(1);
+_hour = RemoteObject.concat((BA.numberCast(int.class, main.mostCurrent._label_hour.runMethod(true,"getText"))),RemoteObject.createImmutable(":"),(BA.numberCast(int.class, main.mostCurrent._label_minute.runMethod(true,"getText"))));Debug.locals.put("hour", _hour);
  };
  };
  };
- BA.debugLineNum = 164;BA.debugLine="insert_into_table(name_db,tables_db.Get(0),col,pa";
-Debug.ShouldStop(8);
-_insert_into_table(main.mostCurrent._name_db,BA.ObjectToString(main.mostCurrent._tables_db.runMethod(false,"Get",(Object)(BA.numberCast(int.class, 0)))),_col,_patent,_date,_hour,BA.ObjectToString(""),BA.ObjectToString(""),BA.NumberToString(0));
- BA.debugLineNum = 165;BA.debugLine="customer_text_patent.Text = \"\"";
+ BA.debugLineNum = 165;BA.debugLine="insert_into_table(name_db,tables_db.Get(0),col,pa";
 Debug.ShouldStop(16);
-main.mostCurrent._customer_text_patent.runMethodAndSync(true,"setText",BA.ObjectToCharSequence(""));
- BA.debugLineNum = 166;BA.debugLine="label_hour.Text = \"\"";
+_insert_into_table(main.mostCurrent._name_db,BA.ObjectToString(main.mostCurrent._tables_db.runMethod(false,"Get",(Object)(BA.numberCast(int.class, 0)))),_col,_patent,_date,_hour,BA.ObjectToString(""),BA.ObjectToString(""),BA.NumberToString(0));
+ BA.debugLineNum = 166;BA.debugLine="customer_text_patent.Text = \"\"";
 Debug.ShouldStop(32);
-main.mostCurrent._label_hour.runMethodAndSync(true,"setText",BA.ObjectToCharSequence(""));
- BA.debugLineNum = 167;BA.debugLine="label_minute.Text = \"\"";
+main.mostCurrent._customer_text_patent.runMethodAndSync(true,"setText",BA.ObjectToCharSequence(""));
+ BA.debugLineNum = 167;BA.debugLine="label_hour.Text = \"\"";
 Debug.ShouldStop(64);
+main.mostCurrent._label_hour.runMethodAndSync(true,"setText",BA.ObjectToCharSequence(""));
+ BA.debugLineNum = 168;BA.debugLine="label_minute.Text = \"\"";
+Debug.ShouldStop(128);
 main.mostCurrent._label_minute.runMethodAndSync(true,"setText",BA.ObjectToCharSequence(""));
- BA.debugLineNum = 169;BA.debugLine="End Sub";
-Debug.ShouldStop(256);
+ BA.debugLineNum = 170;BA.debugLine="End Sub";
+Debug.ShouldStop(512);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -383,7 +383,7 @@ this.state = 9;
 this.catchState = 0;
  BA.debugLineNum = 278;BA.debugLine="Log(\"ERROR al elminar tabla: \"&tables_db.Get(0)";
 Debug.ShouldStop(2097152);
-parent.mostCurrent.__c.runVoidMethod ("LogImpl","2655375",RemoteObject.concat(RemoteObject.createImmutable("ERROR al elminar tabla: "),parent.mostCurrent._tables_db.runMethod(false,"Get",(Object)(BA.numberCast(int.class, 0))),RemoteObject.createImmutable(" ,"),parent.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage")),0);
+parent.mostCurrent.__c.runVoidMethod ("LogImpl","5655375",RemoteObject.concat(RemoteObject.createImmutable("ERROR al elminar tabla: "),parent.mostCurrent._tables_db.runMethod(false,"Get",(Object)(BA.numberCast(int.class, 0))),RemoteObject.createImmutable(" ,"),parent.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage")),0);
  if (true) break;
 if (true) break;
 
@@ -590,7 +590,7 @@ finally {
 		}}
 public static RemoteObject  _insert_into_table(RemoteObject _name,RemoteObject _table,RemoteObject _col,RemoteObject _i1,RemoteObject _i2,RemoteObject _i3,RemoteObject _i4,RemoteObject _i5,RemoteObject _i6) throws Exception{
 try {
-		Debug.PushSubsStack("insert_into_table (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,171);
+		Debug.PushSubsStack("insert_into_table (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,172);
 if (RapidSub.canDelegate("insert_into_table")) { return b4a.EjemploSQLite.main.remoteMe.runUserSub(false, "main","insert_into_table", _name, _table, _col, _i1, _i2, _i3, _i4, _i5, _i6);}
 Debug.locals.put("name", _name);
 Debug.locals.put("table", _table);
@@ -601,40 +601,40 @@ Debug.locals.put("i3", _i3);
 Debug.locals.put("i4", _i4);
 Debug.locals.put("i5", _i5);
 Debug.locals.put("i6", _i6);
- BA.debugLineNum = 171;BA.debugLine="Sub insert_into_table (name As String,table As Str";
-Debug.ShouldStop(1024);
- BA.debugLineNum = 173;BA.debugLine="SQLite.Initialize(File.DirInternal,name,True)";
-Debug.ShouldStop(4096);
-main._sqlite.runVoidMethod ("Initialize",(Object)(main.mostCurrent.__c.getField(false,"File").runMethod(true,"getDirInternal")),(Object)(_name),(Object)(main.mostCurrent.__c.getField(true,"True")));
- BA.debugLineNum = 174;BA.debugLine="SQLite.BeginTransaction";
+ BA.debugLineNum = 172;BA.debugLine="Sub insert_into_table (name As String,table As Str";
+Debug.ShouldStop(2048);
+ BA.debugLineNum = 174;BA.debugLine="SQLite.Initialize(File.DirInternal,name,True)";
 Debug.ShouldStop(8192);
-main._sqlite.runVoidMethod ("BeginTransaction");
- BA.debugLineNum = 175;BA.debugLine="Try";
+main._sqlite.runVoidMethod ("Initialize",(Object)(main.mostCurrent.__c.getField(false,"File").runMethod(true,"getDirInternal")),(Object)(_name),(Object)(main.mostCurrent.__c.getField(true,"True")));
+ BA.debugLineNum = 175;BA.debugLine="SQLite.BeginTransaction";
 Debug.ShouldStop(16384);
-try { BA.debugLineNum = 176;BA.debugLine="SQLite.ExecNonQuery2(\"INSERT INTO \"&table&\" \"&co";
+main._sqlite.runVoidMethod ("BeginTransaction");
+ BA.debugLineNum = 176;BA.debugLine="Try";
 Debug.ShouldStop(32768);
-main._sqlite.runVoidMethod ("ExecNonQuery2",(Object)(RemoteObject.concat(RemoteObject.createImmutable("INSERT INTO "),_table,RemoteObject.createImmutable(" "),_col,RemoteObject.createImmutable(" VALUES (?,?,?,?,?,?)"))),(Object)(main.mostCurrent.__c.runMethod(false, "ArrayToList", (Object)(RemoteObject.createNewArray("Object",new int[] {6},new Object[] {(_i1.runMethod(true,"toUpperCase")),(_i2),(_i3),(_i4),(_i5),(_i6)})))));
- BA.debugLineNum = 177;BA.debugLine="SQLite.TransactionSuccessful";
+try { BA.debugLineNum = 177;BA.debugLine="SQLite.ExecNonQuery2(\"INSERT INTO \"&table&\" \"&co";
 Debug.ShouldStop(65536);
-main._sqlite.runVoidMethod ("TransactionSuccessful");
- BA.debugLineNum = 178;BA.debugLine="xui.MsgboxAsync(\"Patent: \"&i1.ToUpperCase&CRLF&\"";
+main._sqlite.runVoidMethod ("ExecNonQuery2",(Object)(RemoteObject.concat(RemoteObject.createImmutable("INSERT INTO "),_table,RemoteObject.createImmutable(" "),_col,RemoteObject.createImmutable(" VALUES (?,?,?,?,?,?)"))),(Object)(main.mostCurrent.__c.runMethod(false, "ArrayToList", (Object)(RemoteObject.createNewArray("Object",new int[] {6},new Object[] {(_i1.runMethod(true,"toUpperCase")),(_i2),(_i3),(_i4),(_i5),(_i6)})))));
+ BA.debugLineNum = 178;BA.debugLine="SQLite.TransactionSuccessful";
 Debug.ShouldStop(131072);
+main._sqlite.runVoidMethod ("TransactionSuccessful");
+ BA.debugLineNum = 179;BA.debugLine="xui.MsgboxAsync(\"Patent: \"&i1.ToUpperCase&CRLF&\"";
+Debug.ShouldStop(262144);
 main._xui.runVoidMethod ("MsgboxAsync",main.processBA,(Object)(BA.ObjectToCharSequence(RemoteObject.concat(RemoteObject.createImmutable("Patent: "),_i1.runMethod(true,"toUpperCase"),main.mostCurrent.__c.getField(true,"CRLF"),RemoteObject.createImmutable("Date: "),_i2,main.mostCurrent.__c.getField(true,"CRLF"),RemoteObject.createImmutable("Hour: "),_i3,main.mostCurrent.__c.getField(true,"CRLF"),RemoteObject.createImmutable("End: "),_i4,main.mostCurrent.__c.getField(true,"CRLF"),RemoteObject.createImmutable("Time: "),_i5,main.mostCurrent.__c.getField(true,"CRLF"),RemoteObject.createImmutable("Payment: "),_i6))),(Object)(BA.ObjectToCharSequence(RemoteObject.concat(RemoteObject.createImmutable("Insert into: "),_table,RemoteObject.createImmutable(", successfully")))));
  Debug.CheckDeviceExceptions();
 } 
        catch (Exception e8) {
-			BA.rdebugUtils.runVoidMethod("setLastException",main.processBA, e8.toString()); BA.debugLineNum = 180;BA.debugLine="ToastMessageShow(\"Insert into failed: \"&table,Tr";
-Debug.ShouldStop(524288);
-main.mostCurrent.__c.runVoidMethod ("ToastMessageShow",(Object)(BA.ObjectToCharSequence(RemoteObject.concat(RemoteObject.createImmutable("Insert into failed: "),_table))),(Object)(main.mostCurrent.__c.getField(true,"True")));
- BA.debugLineNum = 181;BA.debugLine="Log(\"Insert into failedd:\"&table&\", \"&LastExcept";
+			BA.rdebugUtils.runVoidMethod("setLastException",main.processBA, e8.toString()); BA.debugLineNum = 181;BA.debugLine="ToastMessageShow(\"Insert into failed: \"&table,Tr";
 Debug.ShouldStop(1048576);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","2458762",RemoteObject.concat(RemoteObject.createImmutable("Insert into failedd:"),_table,RemoteObject.createImmutable(", "),main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage")),0);
+main.mostCurrent.__c.runVoidMethod ("ToastMessageShow",(Object)(BA.ObjectToCharSequence(RemoteObject.concat(RemoteObject.createImmutable("Insert into failed: "),_table))),(Object)(main.mostCurrent.__c.getField(true,"True")));
+ BA.debugLineNum = 182;BA.debugLine="Log(\"Insert into failedd:\"&table&\", \"&LastExcept";
+Debug.ShouldStop(2097152);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5458762",RemoteObject.concat(RemoteObject.createImmutable("Insert into failedd:"),_table,RemoteObject.createImmutable(", "),main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage")),0);
  };
- BA.debugLineNum = 183;BA.debugLine="SQLite.EndTransaction";
-Debug.ShouldStop(4194304);
-main._sqlite.runVoidMethod ("EndTransaction");
- BA.debugLineNum = 184;BA.debugLine="End Sub";
+ BA.debugLineNum = 184;BA.debugLine="SQLite.EndTransaction";
 Debug.ShouldStop(8388608);
+main._sqlite.runVoidMethod ("EndTransaction");
+ BA.debugLineNum = 185;BA.debugLine="End Sub";
+Debug.ShouldStop(16777216);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -709,7 +709,7 @@ finally {
 		}}
 public static RemoteObject  _parked_leave_click() throws Exception{
 try {
-		Debug.PushSubsStack("parked_leave_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,346);
+		Debug.PushSubsStack("parked_leave_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,355);
 if (RapidSub.canDelegate("parked_leave_click")) { return b4a.EjemploSQLite.main.remoteMe.runUserSub(false, "main","parked_leave_click");}
 RemoteObject _time = RemoteObject.createImmutable("");
 RemoteObject _da = RemoteObject.createImmutable("");
@@ -718,68 +718,62 @@ RemoteObject _p = RemoteObject.createImmutable("");
 RemoteObject _d = RemoteObject.createImmutable("");
 RemoteObject _h = RemoteObject.createImmutable("");
 RemoteObject _pay = RemoteObject.createImmutable("");
- BA.debugLineNum = 346;BA.debugLine="Private Sub parked_leave_Click";
-Debug.ShouldStop(33554432);
- BA.debugLineNum = 347;BA.debugLine="Dim time,da As String";
-Debug.ShouldStop(67108864);
+ BA.debugLineNum = 355;BA.debugLine="Private Sub parked_leave_Click";
+Debug.ShouldStop(4);
+ BA.debugLineNum = 356;BA.debugLine="Dim time,da As String";
+Debug.ShouldStop(8);
 _time = RemoteObject.createImmutable("");Debug.locals.put("time", _time);
 _da = RemoteObject.createImmutable("");Debug.locals.put("da", _da);
- BA.debugLineNum = 348;BA.debugLine="time = DateTime.Now";
-Debug.ShouldStop(134217728);
+ BA.debugLineNum = 357;BA.debugLine="time = DateTime.Now";
+Debug.ShouldStop(16);
 _time = BA.NumberToString(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"getNow"));Debug.locals.put("time", _time);
- BA.debugLineNum = 349;BA.debugLine="da = DateTime.GetYear(time)&\"/\"&DateTime.GetMonth";
-Debug.ShouldStop(268435456);
+ BA.debugLineNum = 358;BA.debugLine="da = DateTime.GetYear(time)&\"/\"&DateTime.GetMonth";
+Debug.ShouldStop(32);
 _da = RemoteObject.concat(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetYear",(Object)(BA.numberCast(long.class, _time))),RemoteObject.createImmutable("/"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetMonth",(Object)(BA.numberCast(long.class, _time))),RemoteObject.createImmutable("/"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetDayOfMonth",(Object)(BA.numberCast(long.class, _time))));Debug.locals.put("da", _da);
- BA.debugLineNum = 352;BA.debugLine="query_selector=SQLite.ExecQuery(\"SELECT * FROM \"&";
-Debug.ShouldStop(-2147483648);
+ BA.debugLineNum = 361;BA.debugLine="query_selector=SQLite.ExecQuery(\"SELECT * FROM \"&";
+Debug.ShouldStop(256);
 main.mostCurrent._query_selector = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.sql.SQL.CursorWrapper"), main._sqlite.runMethod(false,"ExecQuery",(Object)(RemoteObject.concat(RemoteObject.createImmutable("SELECT * FROM "),main.mostCurrent._tables_db.runMethod(false,"Get",(Object)(BA.numberCast(int.class, 0))),RemoteObject.createImmutable(" WHERE date='"),_da,RemoteObject.createImmutable("' and payment > 0 ORDER BY patent ASC")))));
- BA.debugLineNum = 353;BA.debugLine="parked_listview.clear";
-Debug.ShouldStop(1);
+ BA.debugLineNum = 362;BA.debugLine="parked_listview.clear";
+Debug.ShouldStop(512);
 main.mostCurrent._parked_listview.runVoidMethod ("Clear");
- BA.debugLineNum = 354;BA.debugLine="If query_selector.RowCount>0 Then";
-Debug.ShouldStop(2);
+ BA.debugLineNum = 363;BA.debugLine="If query_selector.RowCount>0 Then";
+Debug.ShouldStop(1024);
 if (RemoteObject.solveBoolean(">",main.mostCurrent._query_selector.runMethod(true,"getRowCount"),BA.numberCast(double.class, 0))) { 
- BA.debugLineNum = 356;BA.debugLine="For i=0 To query_selector.RowCount-1";
-Debug.ShouldStop(8);
+ BA.debugLineNum = 364;BA.debugLine="For i=0 To query_selector.RowCount-1";
+Debug.ShouldStop(2048);
 {
 final int step7 = 1;
 final int limit7 = RemoteObject.solve(new RemoteObject[] {main.mostCurrent._query_selector.runMethod(true,"getRowCount"),RemoteObject.createImmutable(1)}, "-",1, 1).<Integer>get().intValue();
 _i = 0 ;
 for (;(step7 > 0 && _i <= limit7) || (step7 < 0 && _i >= limit7) ;_i = ((int)(0 + _i + step7))  ) {
 Debug.locals.put("i", _i);
- BA.debugLineNum = 357;BA.debugLine="query_selector.Position=i";
-Debug.ShouldStop(16);
+ BA.debugLineNum = 365;BA.debugLine="query_selector.Position=i";
+Debug.ShouldStop(4096);
 main.mostCurrent._query_selector.runMethod(true,"setPosition",BA.numberCast(int.class, _i));
- BA.debugLineNum = 358;BA.debugLine="Dim p,d,h,pay As String";
-Debug.ShouldStop(32);
+ BA.debugLineNum = 366;BA.debugLine="Dim p,d,h,pay As String";
+Debug.ShouldStop(8192);
 _p = RemoteObject.createImmutable("");Debug.locals.put("p", _p);
 _d = RemoteObject.createImmutable("");Debug.locals.put("d", _d);
 _h = RemoteObject.createImmutable("");Debug.locals.put("h", _h);
 _pay = RemoteObject.createImmutable("");Debug.locals.put("pay", _pay);
- BA.debugLineNum = 359;BA.debugLine="p=query_selector.GetString(\"patent\")";
-Debug.ShouldStop(64);
+ BA.debugLineNum = 367;BA.debugLine="p=query_selector.GetString(\"patent\")";
+Debug.ShouldStop(16384);
 _p = main.mostCurrent._query_selector.runMethod(true,"GetString",(Object)(RemoteObject.createImmutable("patent")));Debug.locals.put("p", _p);
- BA.debugLineNum = 360;BA.debugLine="d=query_selector.GetString(\"date\")";
-Debug.ShouldStop(128);
-_d = main.mostCurrent._query_selector.runMethod(true,"GetString",(Object)(RemoteObject.createImmutable("date")));Debug.locals.put("d", _d);
- BA.debugLineNum = 361;BA.debugLine="h=query_selector.GetString(\"hour\")";
-Debug.ShouldStop(256);
-_h = main.mostCurrent._query_selector.runMethod(true,"GetString",(Object)(RemoteObject.createImmutable("hour")));Debug.locals.put("h", _h);
- BA.debugLineNum = 362;BA.debugLine="pay=query_selector.GetString(\"payment\")";
-Debug.ShouldStop(512);
+ BA.debugLineNum = 370;BA.debugLine="pay=query_selector.GetString(\"payment\")";
+Debug.ShouldStop(131072);
 _pay = main.mostCurrent._query_selector.runMethod(true,"GetString",(Object)(RemoteObject.createImmutable("payment")));Debug.locals.put("pay", _pay);
- BA.debugLineNum = 363;BA.debugLine="parked_listview.AddSingleLine(p&\" \"&d&\" \"&h&\" \"";
-Debug.ShouldStop(1024);
-main.mostCurrent._parked_listview.runVoidMethod ("AddSingleLine",(Object)(BA.ObjectToCharSequence(RemoteObject.concat(_p,RemoteObject.createImmutable(" "),_d,RemoteObject.createImmutable(" "),_h,RemoteObject.createImmutable(" "),_pay))));
+ BA.debugLineNum = 372;BA.debugLine="parked_listview.AddSingleLine(p&\" | \"&pay)";
+Debug.ShouldStop(524288);
+main.mostCurrent._parked_listview.runVoidMethod ("AddSingleLine",(Object)(BA.ObjectToCharSequence(RemoteObject.concat(_p,RemoteObject.createImmutable(" | "),_pay))));
  }
 }Debug.locals.put("i", _i);
 ;
  };
- BA.debugLineNum = 366;BA.debugLine="label_main.Text = \"List of cars leave parked toda";
-Debug.ShouldStop(8192);
+ BA.debugLineNum = 375;BA.debugLine="label_main.Text = \"List of cars leave parked toda";
+Debug.ShouldStop(4194304);
 main.mostCurrent._label_main.runMethod(true,"setText",BA.ObjectToCharSequence("List of cars leave parked today"));
- BA.debugLineNum = 367;BA.debugLine="End Sub";
-Debug.ShouldStop(16384);
+ BA.debugLineNum = 376;BA.debugLine="End Sub";
+Debug.ShouldStop(8388608);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -838,14 +832,14 @@ Debug.locals.put("Value", _value);
  BA.debugLineNum = 206;BA.debugLine="query_selector.Position=Position";
 Debug.ShouldStop(8192);
 parent.mostCurrent._query_selector.runMethod(true,"setPosition",_position);
- BA.debugLineNum = 207;BA.debugLine="If query_selector.GetString(\"payment\") <> 0 Then";
+ BA.debugLineNum = 207;BA.debugLine="If query_selector.GetString(\"payment\") <> 0 And q";
 Debug.ShouldStop(16384);
 if (true) break;
 
 case 1:
 //if
 this.state = 4;
-if (RemoteObject.solveBoolean("!",parent.mostCurrent._query_selector.runMethod(true,"GetString",(Object)(RemoteObject.createImmutable("payment"))),BA.NumberToString(0))) { 
+if (RemoteObject.solveBoolean("!",parent.mostCurrent._query_selector.runMethod(true,"GetString",(Object)(RemoteObject.createImmutable("payment"))),BA.NumberToString(0)) && RemoteObject.solveBoolean("!",parent.mostCurrent._query_selector.runMethod(true,"GetString",(Object)(RemoteObject.createImmutable("payment"))),BA.ObjectToString(""))) { 
 this.state = 3;
 }if (true) break;
 
@@ -941,7 +935,7 @@ case 10:
 this.state = 19;
  BA.debugLineNum = 228;BA.debugLine="Log(\"distintos dias\")";
 Debug.ShouldStop(8);
-parent.mostCurrent.__c.runVoidMethod ("LogImpl","2589848",RemoteObject.createImmutable("distintos dias"),0);
+parent.mostCurrent.__c.runVoidMethod ("LogImpl","5589848",RemoteObject.createImmutable("distintos dias"),0);
  BA.debugLineNum = 229;BA.debugLine="label_end.Text = \"23:59\"";
 Debug.ShouldStop(16);
 parent.mostCurrent._label_end.runMethod(true,"setText",BA.ObjectToCharSequence("23:59"));
@@ -1086,9 +1080,9 @@ this.state = 36;
 case 34:
 //C
 this.state = 37;
- BA.debugLineNum = 254;BA.debugLine="label_pay.Text = \"500\"";
+ BA.debugLineNum = 254;BA.debugLine="label_pay.Text = \"$ 500 pesos\"";
 Debug.ShouldStop(536870912);
-parent.mostCurrent._label_pay.runMethod(true,"setText",BA.ObjectToCharSequence("500"));
+parent.mostCurrent._label_pay.runMethod(true,"setText",BA.ObjectToCharSequence("$ 500 pesos"));
  BA.debugLineNum = 255;BA.debugLine="label_pay.Tag = \"500\"";
 Debug.ShouldStop(1073741824);
 parent.mostCurrent._label_pay.runMethod(false,"setTag",RemoteObject.createImmutable(("500")));
@@ -1099,7 +1093,7 @@ case 36:
 this.state = 37;
  BA.debugLineNum = 257;BA.debugLine="label_pay.Text =\"$500 + \"&(ti-15)&\" * $30\"&\" =";
 Debug.ShouldStop(1);
-parent.mostCurrent._label_pay.runMethod(true,"setText",BA.ObjectToCharSequence(RemoteObject.concat(RemoteObject.createImmutable("$500 + "),(RemoteObject.solve(new RemoteObject[] {_ti,RemoteObject.createImmutable(15)}, "-",1, 1)),RemoteObject.createImmutable(" * $30"),RemoteObject.createImmutable(" = $"),(BA.NumberToString((RemoteObject.solve(new RemoteObject[] {RemoteObject.createImmutable(500),(RemoteObject.solve(new RemoteObject[] {_ti,RemoteObject.createImmutable(15)}, "-",1, 1)),RemoteObject.createImmutable(30)}, "+*",1, 1)))))));
+parent.mostCurrent._label_pay.runMethod(true,"setText",BA.ObjectToCharSequence(RemoteObject.concat(RemoteObject.createImmutable("$500 + "),(RemoteObject.solve(new RemoteObject[] {_ti,RemoteObject.createImmutable(15)}, "-",1, 1)),RemoteObject.createImmutable(" * $30"),RemoteObject.createImmutable(" = $"),(BA.NumberToString((RemoteObject.solve(new RemoteObject[] {RemoteObject.createImmutable(500),(RemoteObject.solve(new RemoteObject[] {_ti,RemoteObject.createImmutable(15)}, "-",1, 1)),RemoteObject.createImmutable(30)}, "+*",1, 1)))),RemoteObject.createImmutable(" pesos"))));
  BA.debugLineNum = 258;BA.debugLine="label_pay.Tag = (500 +(ti-15)*30).As(String)";
 Debug.ShouldStop(2);
 parent.mostCurrent._label_pay.runMethod(false,"setTag",((BA.NumberToString((RemoteObject.solve(new RemoteObject[] {RemoteObject.createImmutable(500),(RemoteObject.solve(new RemoteObject[] {_ti,RemoteObject.createImmutable(15)}, "-",1, 1)),RemoteObject.createImmutable(30)}, "+*",1, 1))))));
@@ -1131,7 +1125,7 @@ finally {
 }
 public static RemoteObject  _parked_today_click() throws Exception{
 try {
-		Debug.PushSubsStack("parked_today_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,369);
+		Debug.PushSubsStack("parked_today_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,378);
 if (RapidSub.canDelegate("parked_today_click")) { return b4a.EjemploSQLite.main.remoteMe.runUserSub(false, "main","parked_today_click");}
 RemoteObject _time = RemoteObject.createImmutable("");
 RemoteObject _da = RemoteObject.createImmutable("");
@@ -1140,68 +1134,68 @@ RemoteObject _p = RemoteObject.createImmutable("");
 RemoteObject _d = RemoteObject.createImmutable("");
 RemoteObject _h = RemoteObject.createImmutable("");
 RemoteObject _pay = RemoteObject.createImmutable("");
- BA.debugLineNum = 369;BA.debugLine="Private Sub parked_today_Click";
-Debug.ShouldStop(65536);
- BA.debugLineNum = 370;BA.debugLine="Dim time,da As String";
-Debug.ShouldStop(131072);
+ BA.debugLineNum = 378;BA.debugLine="Private Sub parked_today_Click";
+Debug.ShouldStop(33554432);
+ BA.debugLineNum = 379;BA.debugLine="Dim time,da As String";
+Debug.ShouldStop(67108864);
 _time = RemoteObject.createImmutable("");Debug.locals.put("time", _time);
 _da = RemoteObject.createImmutable("");Debug.locals.put("da", _da);
- BA.debugLineNum = 371;BA.debugLine="time = DateTime.Now";
-Debug.ShouldStop(262144);
+ BA.debugLineNum = 380;BA.debugLine="time = DateTime.Now";
+Debug.ShouldStop(134217728);
 _time = BA.NumberToString(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"getNow"));Debug.locals.put("time", _time);
- BA.debugLineNum = 372;BA.debugLine="da = DateTime.GetYear(time)&\"/\"&DateTime.GetMonth";
-Debug.ShouldStop(524288);
+ BA.debugLineNum = 381;BA.debugLine="da = DateTime.GetYear(time)&\"/\"&DateTime.GetMonth";
+Debug.ShouldStop(268435456);
 _da = RemoteObject.concat(main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetYear",(Object)(BA.numberCast(long.class, _time))),RemoteObject.createImmutable("/"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetMonth",(Object)(BA.numberCast(long.class, _time))),RemoteObject.createImmutable("/"),main.mostCurrent.__c.getField(false,"DateTime").runMethod(true,"GetDayOfMonth",(Object)(BA.numberCast(long.class, _time))));Debug.locals.put("da", _da);
- BA.debugLineNum = 375;BA.debugLine="query_selector=SQLite.ExecQuery(\"SELECT * FROM \"&";
-Debug.ShouldStop(4194304);
+ BA.debugLineNum = 384;BA.debugLine="query_selector=SQLite.ExecQuery(\"SELECT * FROM \"&";
+Debug.ShouldStop(-2147483648);
 main.mostCurrent._query_selector = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.sql.SQL.CursorWrapper"), main._sqlite.runMethod(false,"ExecQuery",(Object)(RemoteObject.concat(RemoteObject.createImmutable("SELECT * FROM "),main.mostCurrent._tables_db.runMethod(false,"Get",(Object)(BA.numberCast(int.class, 0))),RemoteObject.createImmutable(" WHERE date='"),_da,RemoteObject.createImmutable("' ORDER BY patent ASC")))));
- BA.debugLineNum = 376;BA.debugLine="parked_listview.clear";
-Debug.ShouldStop(8388608);
+ BA.debugLineNum = 385;BA.debugLine="parked_listview.clear";
+Debug.ShouldStop(1);
 main.mostCurrent._parked_listview.runVoidMethod ("Clear");
- BA.debugLineNum = 377;BA.debugLine="If query_selector.RowCount>0 Then";
-Debug.ShouldStop(16777216);
+ BA.debugLineNum = 386;BA.debugLine="If query_selector.RowCount>0 Then";
+Debug.ShouldStop(2);
 if (RemoteObject.solveBoolean(">",main.mostCurrent._query_selector.runMethod(true,"getRowCount"),BA.numberCast(double.class, 0))) { 
- BA.debugLineNum = 379;BA.debugLine="For i=0 To query_selector.RowCount-1";
-Debug.ShouldStop(67108864);
+ BA.debugLineNum = 388;BA.debugLine="For i=0 To query_selector.RowCount-1";
+Debug.ShouldStop(8);
 {
 final int step7 = 1;
 final int limit7 = RemoteObject.solve(new RemoteObject[] {main.mostCurrent._query_selector.runMethod(true,"getRowCount"),RemoteObject.createImmutable(1)}, "-",1, 1).<Integer>get().intValue();
 _i = 0 ;
 for (;(step7 > 0 && _i <= limit7) || (step7 < 0 && _i >= limit7) ;_i = ((int)(0 + _i + step7))  ) {
 Debug.locals.put("i", _i);
- BA.debugLineNum = 380;BA.debugLine="query_selector.Position=i";
-Debug.ShouldStop(134217728);
+ BA.debugLineNum = 389;BA.debugLine="query_selector.Position=i";
+Debug.ShouldStop(16);
 main.mostCurrent._query_selector.runMethod(true,"setPosition",BA.numberCast(int.class, _i));
- BA.debugLineNum = 381;BA.debugLine="Dim p,d,h,pay As String";
-Debug.ShouldStop(268435456);
+ BA.debugLineNum = 390;BA.debugLine="Dim p,d,h,pay As String";
+Debug.ShouldStop(32);
 _p = RemoteObject.createImmutable("");Debug.locals.put("p", _p);
 _d = RemoteObject.createImmutable("");Debug.locals.put("d", _d);
 _h = RemoteObject.createImmutable("");Debug.locals.put("h", _h);
 _pay = RemoteObject.createImmutable("");Debug.locals.put("pay", _pay);
- BA.debugLineNum = 382;BA.debugLine="p=query_selector.GetString(\"patent\")";
-Debug.ShouldStop(536870912);
+ BA.debugLineNum = 391;BA.debugLine="p=query_selector.GetString(\"patent\")";
+Debug.ShouldStop(64);
 _p = main.mostCurrent._query_selector.runMethod(true,"GetString",(Object)(RemoteObject.createImmutable("patent")));Debug.locals.put("p", _p);
- BA.debugLineNum = 383;BA.debugLine="d=query_selector.GetString(\"date\")";
-Debug.ShouldStop(1073741824);
+ BA.debugLineNum = 392;BA.debugLine="d=query_selector.GetString(\"date\")";
+Debug.ShouldStop(128);
 _d = main.mostCurrent._query_selector.runMethod(true,"GetString",(Object)(RemoteObject.createImmutable("date")));Debug.locals.put("d", _d);
- BA.debugLineNum = 384;BA.debugLine="h=query_selector.GetString(\"hour\")";
-Debug.ShouldStop(-2147483648);
+ BA.debugLineNum = 393;BA.debugLine="h=query_selector.GetString(\"hour\")";
+Debug.ShouldStop(256);
 _h = main.mostCurrent._query_selector.runMethod(true,"GetString",(Object)(RemoteObject.createImmutable("hour")));Debug.locals.put("h", _h);
- BA.debugLineNum = 385;BA.debugLine="pay=query_selector.GetString(\"payment\")";
-Debug.ShouldStop(1);
+ BA.debugLineNum = 394;BA.debugLine="pay=query_selector.GetString(\"payment\")";
+Debug.ShouldStop(512);
 _pay = main.mostCurrent._query_selector.runMethod(true,"GetString",(Object)(RemoteObject.createImmutable("payment")));Debug.locals.put("pay", _pay);
- BA.debugLineNum = 386;BA.debugLine="parked_listview.AddSingleLine(p&\" \"&d&\" \"&h&\" \"";
-Debug.ShouldStop(2);
+ BA.debugLineNum = 395;BA.debugLine="parked_listview.AddSingleLine(p&\" \"&d&\" \"&h&\" \"";
+Debug.ShouldStop(1024);
 main.mostCurrent._parked_listview.runVoidMethod ("AddSingleLine",(Object)(BA.ObjectToCharSequence(RemoteObject.concat(_p,RemoteObject.createImmutable(" "),_d,RemoteObject.createImmutable(" "),_h,RemoteObject.createImmutable(" "),_pay))));
  }
 }Debug.locals.put("i", _i);
 ;
  };
- BA.debugLineNum = 390;BA.debugLine="label_main.Text = \"List of cars parked today\"";
-Debug.ShouldStop(32);
+ BA.debugLineNum = 399;BA.debugLine="label_main.Text = \"List of cars parked today\"";
+Debug.ShouldStop(16384);
 main.mostCurrent._label_main.runMethod(true,"setText",BA.ObjectToCharSequence("List of cars parked today"));
- BA.debugLineNum = 393;BA.debugLine="End Sub";
-Debug.ShouldStop(256);
+ BA.debugLineNum = 402;BA.debugLine="End Sub";
+Debug.ShouldStop(131072);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1257,19 +1251,46 @@ main.mostCurrent._label_main.runMethod(true,"setText",BA.ObjectToCharSequence("L
  BA.debugLineNum = 337;BA.debugLine="parked_listview.Clear";
 Debug.ShouldStop(65536);
 main.mostCurrent._parked_listview.runVoidMethod ("Clear");
- };
- BA.debugLineNum = 340;BA.debugLine="If TabHost1.CurrentTab = 2 Then";
+ BA.debugLineNum = 338;BA.debugLine="label_id.Text = \"\"";
+Debug.ShouldStop(131072);
+main.mostCurrent._label_id.runMethod(true,"setText",BA.ObjectToCharSequence(""));
+ BA.debugLineNum = 339;BA.debugLine="label_patent.Text = \"\"";
+Debug.ShouldStop(262144);
+main.mostCurrent._label_patent.runMethod(true,"setText",BA.ObjectToCharSequence(""));
+ BA.debugLineNum = 340;BA.debugLine="label_date.Text = \"\"";
 Debug.ShouldStop(524288);
-if (RemoteObject.solveBoolean("=",main.mostCurrent._tabhost1.runMethod(true,"getCurrentTab"),BA.numberCast(double.class, 2))) { 
- BA.debugLineNum = 341;BA.debugLine="label_main.Text = \"Payment details\"";
+main.mostCurrent._label_date.runMethod(true,"setText",BA.ObjectToCharSequence(""));
+ BA.debugLineNum = 341;BA.debugLine="label_start.Text = \"\"";
 Debug.ShouldStop(1048576);
-main.mostCurrent._label_main.runMethod(true,"setText",BA.ObjectToCharSequence("Payment details"));
- BA.debugLineNum = 342;BA.debugLine="parked_listview.Clear";
+main.mostCurrent._label_start.runMethod(true,"setText",BA.ObjectToCharSequence(""));
+ BA.debugLineNum = 342;BA.debugLine="label_end.Text = \"\"";
 Debug.ShouldStop(2097152);
+main.mostCurrent._label_end.runMethod(true,"setText",BA.ObjectToCharSequence(""));
+ BA.debugLineNum = 343;BA.debugLine="label_time.Text = \"0 minutes\"";
+Debug.ShouldStop(4194304);
+main.mostCurrent._label_time.runMethod(true,"setText",BA.ObjectToCharSequence("0 minutes"));
+ BA.debugLineNum = 344;BA.debugLine="label_time.Tag = \"\"";
+Debug.ShouldStop(8388608);
+main.mostCurrent._label_time.runMethod(false,"setTag",RemoteObject.createImmutable(("")));
+ BA.debugLineNum = 345;BA.debugLine="label_pay.Text = \"$ 0 pesos\"";
+Debug.ShouldStop(16777216);
+main.mostCurrent._label_pay.runMethod(true,"setText",BA.ObjectToCharSequence("$ 0 pesos"));
+ BA.debugLineNum = 346;BA.debugLine="label_pay.Tag = \"\"";
+Debug.ShouldStop(33554432);
+main.mostCurrent._label_pay.runMethod(false,"setTag",RemoteObject.createImmutable(("")));
+ };
+ BA.debugLineNum = 349;BA.debugLine="If TabHost1.CurrentTab = 2 Then";
+Debug.ShouldStop(268435456);
+if (RemoteObject.solveBoolean("=",main.mostCurrent._tabhost1.runMethod(true,"getCurrentTab"),BA.numberCast(double.class, 2))) { 
+ BA.debugLineNum = 350;BA.debugLine="label_main.Text = \"Payment details\"";
+Debug.ShouldStop(536870912);
+main.mostCurrent._label_main.runMethod(true,"setText",BA.ObjectToCharSequence("Payment details"));
+ BA.debugLineNum = 351;BA.debugLine="parked_listview.Clear";
+Debug.ShouldStop(1073741824);
 main.mostCurrent._parked_listview.runVoidMethod ("Clear");
  };
- BA.debugLineNum = 344;BA.debugLine="End Sub";
-Debug.ShouldStop(8388608);
+ BA.debugLineNum = 353;BA.debugLine="End Sub";
+Debug.ShouldStop(1);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1315,7 +1336,7 @@ Debug.ShouldStop(4);
 main.mostCurrent.__c.runVoidMethod ("ToastMessageShow",(Object)(BA.ObjectToCharSequence(RemoteObject.concat(RemoteObject.createImmutable("Update into failed: "),_table))),(Object)(main.mostCurrent.__c.getField(true,"True")));
  BA.debugLineNum = 324;BA.debugLine="Log(\"Update into failedd:\"&table&\", \"&LastExcept";
 Debug.ShouldStop(8);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","2786442",RemoteObject.concat(RemoteObject.createImmutable("Update into failedd:"),_table,RemoteObject.createImmutable(", "),main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage")),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5786442",RemoteObject.concat(RemoteObject.createImmutable("Update into failedd:"),_table,RemoteObject.createImmutable(", "),main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage")),0);
  };
  BA.debugLineNum = 326;BA.debugLine="SQLite.EndTransaction";
 Debug.ShouldStop(32);
