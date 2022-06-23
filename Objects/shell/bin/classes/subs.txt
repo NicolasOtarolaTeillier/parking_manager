@@ -2,7 +2,7 @@ b4a.EjemploSQLite
 0
 0
 0
-main,activity_create,1,0,63,83
+main,activity_create,1,1,63,83
 ,tabhost1,,customer_background,,customer_button_patent,,customer_delete_table,,customer_label_patent,,customer_text_patent,,parked_button,,parked_listview,,info_background,,info_label_date,,info_label_end,,info_label_patent,,info_label_pay,,info_label_start,,info_label_time,,label_date,,label_end,,label_patent,,label_pay,,label_start,,label_time,,name_db,,tables_db,,table_cars,,sqlite
 ,tabhost1,,customer_background,,customer_button_patent,,customer_delete_table,,customer_label_patent,,customer_text_patent,,parked_button,,parked_listview,,info_background,,info_label_date,,info_label_end,,info_label_patent,,info_label_pay,,info_label_start,,info_label_time,,label_date,,label_end,,label_patent,,label_pay,,label_start,,label_time,,name_db,,table_cars
 ,create_db
@@ -18,15 +18,15 @@ main,activity_resume,0,0,99,101
 
 
 
-main,customer_button_patent_click,1,0,107,125
+main,customer_button_patent_click,1,0,107,127
 ,customer_text_patent,,xui,,name_db,,tables_db,,sqlite
 
 ,insert_into_table
-main,insert_into_table,0,0,127,140
+main,insert_into_table,0,0,129,142
 ,sqlite,,xui
 
 
-main,customer_delete_table_click,0,0,213,236
+main,customer_delete_table_click,0,0,214,237
 ,tables_db,,sqlite,,name_db
 
 
@@ -34,11 +34,11 @@ main,globals,0,1,21,61
 
 
 
-main,parked_button_click,0,0,143,157
+main,parked_button_click,0,0,145,159
 ,query_selector,,sqlite,,tables_db,,parked_listview
 ,query_selector
 
-main,parked_listview_itemclick,1,0,159,211
+main,parked_listview_itemclick,1,0,161,212
 ,xui,,tabhost1,,query_selector,,label_patent,,label_date,,label_start,,label_end,,label_time,,label_pay
 
 

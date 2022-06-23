@@ -19,7 +19,7 @@ Version=11.5
 @EndOfDesignText@
 #Region  Project Attributes 
 	#ApplicationLabel: Parking Manager
-	#VersionCode: 1
+	#VersionCode: 2
 	#VersionName: 
 	'SupportedOrientations possible values: unspecified, landscape or portrait.
 	#SupportedOrientations: unspecified
@@ -89,13 +89,13 @@ Sub Activity_Create(FirstTime As Boolean)
 	TabHost1.AddTab("Info","page_info.bal")
 	
 	' database
-	name_db = "parking_manager2.db"
+	name_db = "parking_manager4.db"
 	
 	' database table_cars
 	If FirstTime Then
 		tables_db.Initialize
 		tables_db.AddAll(Array As String ("cars"))
-		table_cars = "(id INTEGER PRIMARY KEY AUTOINCREMENT, patent TEXT, date TEXT, hour TEXT, payment FLOAT)"
+		table_cars = "(id INTEGER PRIMARY KEY AUTOINCREMENT, patent TEXT, date TEXT, hour TEXT, end TEXT, time TEXT, payment FLOAT)"
 		create_db(name_db,tables_db.Get(0), table_cars)
 	End If
 	
@@ -129,28 +129,30 @@ Private Sub customer_button_patent_Click
 		Return
 	End If
 	Dim col,patent,date,hour,time As String
-	col = "(patent, date, hour, payment)"
+	col = "(patent, date, hour, end, time, payment)"
 	time = DateTime.Now
 	patent = customer_text_patent.Text
 	date = DateTime.GetYear(time)&"/"&DateTime.GetMonth(time)&"/"&DateTime.GetDayOfMonth(time)
+
 	If DateTime.GetMinute(time).As(Int) <= 9 Then
 		hour = DateTime.GetHour(time)&":0"&DateTime.GetMinute(time)
 	Else
 		hour = DateTime.GetHour(time)&":"&DateTime.GetMinute(time)
 	End If
-	insert_into_table(name_db,tables_db.Get(0),col,patent,date,hour,0)
+	Log( DateTime.GetMinute(time).As(Int))
+	insert_into_table(name_db,tables_db.Get(0),col,patent,date,hour,"",0,0)
 	customer_text_patent.Text = ""	
 
 End Sub
 
-Sub insert_into_table (name As String,table As String,col As String,i1 As String,i2 As String,i3 As String,i4 As String)
+Sub insert_into_table (name As String,table As String,col As String,i1 As String,i2 As String,i3 As String,i4 As String,i5 As String,i6 As String)
 
 	SQLite.Initialize(File.DirInternal,name,True)
 	SQLite.BeginTransaction
 	Try	
-		SQLite.ExecNonQuery2("INSERT INTO "&table&" "&col&" VALUES (?,?,?,?)", Array As Object(i1.ToUpperCase,i2,i3,i4))
+		SQLite.ExecNonQuery2("INSERT INTO "&table&" "&col&" VALUES (?,?,?,?,?,?)", Array As Object(i1.ToUpperCase,i2,i3,i4,i5,i6))
 		SQLite.TransactionSuccessful
-		xui.MsgboxAsync("Patent: "&i1&CRLF&"Date: "&i2&CRLF&"Hour: "&i3&CRLF&"Payment: "&i4,"Insert into: "&table&", successfully")
+		xui.MsgboxAsync("Patent: "&i1.ToUpperCase&CRLF&"Date: "&i2&CRLF&"Hour: "&i3&CRLF&"End: "&i4&CRLF&"Time: "&i5&CRLF&"Payment: "&i6,"Insert into: "&table&", successfully")
 	Catch
 		ToastMessageShow("Insert into failed: "&table,True)
 		Log("Insert into failedd:"&table&", "&LastException.Message)
@@ -197,18 +199,17 @@ Private Sub parked_listview_ItemClick (Position As Int, Value As Object)
 			Log("distintos dias")
 			label_end.Text = "23:59"
 		Else
-			label_end.Text = DateTime.GetHour(time).As(String)&":"&DateTime.GetMinute(time).As(String)	
+			If DateTime.GetMinute(time).As(Int) <= 9 Then
+				label_end.Text = DateTime.GetHour(time).As(String)&":0"&DateTime.GetMinute(time).As(String)
+			Else
+				label_end.Text = DateTime.GetHour(time).As(String)&":"&DateTime.GetMinute(time).As(String)
+			End If
+			
 		End If
 		ho = (label_end.Text.SubString2(0,2)).As(Int)-(label_start.Text.SubString2(0,2)).As(Int)
 		mi = (label_end.Text.SubString2(3,5)).As(Int)-(label_start.Text.SubString2(3,5)).As(Int)
-'			Log(label_end.Text.SubString2(0,2))
-'			Log(label_start.Text.SubString2(0,2))
-'			Log(label_end.Text.SubString2(3,5))
-'			Log(label_start.Text.SubString2(3,5))
-'			Log(ho)
-'			Log(ho)
 		If ho = 0 Then
-			ti = ho*60 + mi
+			ti = mi
 		Else
 			If mi >= 0 Then
 				ti = ho*60 + mi
