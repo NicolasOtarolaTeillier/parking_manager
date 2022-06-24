@@ -17,7 +17,7 @@ NumberOfLibraries=3
 NumberOfModules=0
 Version=11.5
 @EndOfDesignText@
-#Region  Project Attributes 
+ #Region  Project Attributes 
 	#ApplicationLabel: Parking Manager
 	#VersionCode: 2
 	#VersionName: 

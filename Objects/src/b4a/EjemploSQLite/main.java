@@ -485,7 +485,7 @@ anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("S
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Table creation failed: "+_table),anywheresoftware.b4a.keywords.Common.True);
 RDebugUtils.currentLine=196617;
  //BA.debugLineNum = 196617;BA.debugLine="Log(\"Table creation failed:\"&table&\", \"&LastExce";
-anywheresoftware.b4a.keywords.Common.LogImpl("5196617","Table creation failed:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("1196617","Table creation failed:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
  };
 RDebugUtils.currentLine=196619;
  //BA.debugLineNum = 196619;BA.debugLine="SQLite.EndTransaction";
@@ -677,7 +677,7 @@ _xui.MsgboxAsync(processBA,BA.ObjectToCharSequence("Patent: "+_i1.toUpperCase()+
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Insert into failed: "+_table),anywheresoftware.b4a.keywords.Common.True);
 RDebugUtils.currentLine=458762;
  //BA.debugLineNum = 458762;BA.debugLine="Log(\"Insert into failedd:\"&table&\", \"&LastExcept";
-anywheresoftware.b4a.keywords.Common.LogImpl("5458762","Insert into failedd:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("1458762","Insert into failedd:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
  };
 RDebugUtils.currentLine=458764;
  //BA.debugLineNum = 458764;BA.debugLine="SQLite.EndTransaction";
@@ -779,7 +779,7 @@ this.state = 9;
 this.catchState = 0;
 RDebugUtils.currentLine=655375;
  //BA.debugLineNum = 655375;BA.debugLine="Log(\"ERROR al elminar tabla: \"&tables_db.Get(0)";
-anywheresoftware.b4a.keywords.Common.LogImpl("5655375","ERROR al elminar tabla: "+BA.ObjectToString(parent.mostCurrent._tables_db.Get((int) (0)))+" ,"+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("1655375","ERROR al elminar tabla: "+BA.ObjectToString(parent.mostCurrent._tables_db.Get((int) (0)))+" ,"+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
  if (true) break;
 if (true) break;
 
@@ -929,7 +929,7 @@ _xui.MsgboxAsync(processBA,BA.ObjectToCharSequence("Update to id= "+_id),BA.Obje
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Update into failed: "+_table),anywheresoftware.b4a.keywords.Common.True);
 RDebugUtils.currentLine=786442;
  //BA.debugLineNum = 786442;BA.debugLine="Log(\"Update into failedd:\"&table&\", \"&LastExcept";
-anywheresoftware.b4a.keywords.Common.LogImpl("5786442","Update into failedd:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("1786442","Update into failedd:"+_table+", "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
  };
 RDebugUtils.currentLine=786444;
  //BA.debugLineNum = 786444;BA.debugLine="SQLite.EndTransaction";
@@ -1203,7 +1203,7 @@ case 10:
 this.state = 19;
 RDebugUtils.currentLine=589848;
  //BA.debugLineNum = 589848;BA.debugLine="Log(\"distintos dias\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("5589848","distintos dias",0);
+anywheresoftware.b4a.keywords.Common.LogImpl("1589848","distintos dias",0);
 RDebugUtils.currentLine=589849;
  //BA.debugLineNum = 589849;BA.debugLine="label_end.Text = \"23:59\"";
 parent.mostCurrent._label_end.setText(BA.ObjectToCharSequence("23:59"));
