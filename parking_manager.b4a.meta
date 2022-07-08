@@ -1,6 +1,6 @@
 ﻿ModuleBookmarks0=
 ModuleBreakpoints0=
-ModuleClosedNodes0=3,5,6,7,8,9,10,11,12,13,14,15,17,18
-NavigationStack=Main,parked_leave_Click,355,6,Main,customer_button_patent_Click,114,6,Main,update_record,314,0,Main,insert_into_table,185,0,Main,parked_listview_ItemClick,203,6,Main,TabHost1_TabChanged,339,6,Diseñador Visual,Main.bal,-100,6,Diseñador Visual,page_customer.bal,-100,6,Diseñador Visual,page_parked.bal,-100,6,Diseñador Visual,page_info.bal,-100,6
+ModuleClosedNodes0=3,6,7,8,9,10,11,12,13,14,15,16,17,18
+NavigationStack=Diseñador Visual,page_parked.bal,-100,6,Main,TabHost1_TabChanged,335,6,Main,info_button_pay_Click,289,0,Main,customer_delete_table_click,287,0,Main,Globals,65,4,Main,parked_leave_Click,382,1,Main,parked_today_Click,407,1,Main,parked_listview_ItemClick,207,6,Main,parked_button_Click,190,6,Main,parked_list_Click,427,6
 SelectedBuild=0
 VisibleModules=

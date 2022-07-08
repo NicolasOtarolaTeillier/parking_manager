@@ -2,67 +2,71 @@ b4a.EjemploSQLite
 0
 0
 0
-main,activity_create,1,0,68,91
-,label_main,,tabhost1,,customer_background,,customer_button_patent,,customer_delete_table,,customer_label_patent,,customer_text_patent,,labe_,,label_hour,,label_minute,,parked_button,,parked_leave,,parked_listview,,parked_today,,info_background,,info_button_pay,,info_label_date,,info_label_end,,info_label_patent,,info_label_pay,,info_label_start,,info_label_time,,label_date,,label_end,,label_id,,label_patent,,label_pay,,label_start,,label_time,,name_db,,tables_db,,table_cars,,sqlite
-,label_main,,tabhost1,,customer_background,,customer_button_patent,,customer_delete_table,,customer_label_patent,,customer_text_patent,,labe_,,label_hour,,label_minute,,parked_button,,parked_leave,,parked_listview,,parked_today,,info_background,,info_button_pay,,info_label_date,,info_label_end,,info_label_patent,,info_label_pay,,info_label_start,,info_label_time,,label_date,,label_end,,label_id,,label_patent,,label_pay,,label_start,,label_time,,name_db,,table_cars
+main,activity_create,1,0,72,95
+,label_main,,tabhost1,,customer_background,,customer_button_patent,,customer_delete_table,,customer_label_patent,,customer_text_patent,,labe_,,label_hour,,label_minute,,parked_button,,parked_leave,,parked_list,,parked_listview,,parked_today,,info_background,,info_button_pay,,info_label_date,,info_label_end,,info_label_patent,,info_label_pay,,info_label_start,,info_label_time,,label_date,,label_end,,label_id,,label_patent,,label_pay,,label_start,,label_time,,name_db,,tables_db,,table_cars,,sqlite
+,label_main,,tabhost1,,customer_background,,customer_button_patent,,customer_delete_table,,customer_label_patent,,customer_text_patent,,labe_,,label_hour,,label_minute,,parked_button,,parked_leave,,parked_list,,parked_listview,,parked_today,,info_background,,info_button_pay,,info_label_date,,info_label_end,,info_label_patent,,info_label_pay,,info_label_start,,info_label_time,,label_date,,label_end,,label_id,,label_patent,,label_pay,,label_start,,label_time,,name_db,,table_cars
 ,create_db
-main,create_db,0,0,93,105
+main,create_db,0,0,97,109
 ,sqlite
 
 
-main,activity_pause,0,0,111,113
+main,activity_pause,0,0,115,117
 
 
 
-main,activity_resume,0,0,107,109
+main,activity_resume,0,0,111,113
 
 
 
-main,customer_button_patent_click,1,0,115,170
+main,customer_button_patent_click,1,0,119,174
 ,customer_text_patent,,xui,,label_hour,,label_minute,,name_db,,tables_db,,sqlite
 
 ,insert_into_table
-main,insert_into_table,0,0,172,185
+main,insert_into_table,0,0,176,189
 ,sqlite,,xui
 
 
-main,customer_delete_table_click,0,0,263,286
+main,customer_delete_table_click,0,0,271,294
 ,tables_db,,sqlite,,name_db
 
 
-main,globals,0,1,21,66
+main,globals,0,1,21,70
 
 
 
-main,info_button_pay_click,0,0,288,312
+main,info_button_pay_click,0,0,296,320
 ,label_patent,,xui,,label_id,,label_date,,label_start,,label_end,,label_time,,label_pay,,name_db,,tables_db,,sqlite
 
 ,update_record
-main,update_record,0,0,314,327
+main,update_record,0,0,322,335
 ,sqlite,,xui
 
 
-main,parked_button_click,0,0,187,202
-,query_selector,,sqlite,,tables_db,,parked_listview,,label_main
-,query_selector
+main,parked_button_click,0,0,191,207
+,query_selector,,sqlite,,tables_db,,parked_listview,,label_main,,flag
+,query_selector,,flag
 
-main,parked_leave_click,0,0,355,376
-,query_selector,,sqlite,,tables_db,,parked_listview,,label_main
-,query_selector
+main,parked_leave_click,0,0,363,385
+,query_selector,,sqlite,,tables_db,,parked_listview,,label_main,,flag
+,query_selector,,flag
 
-main,parked_listview_itemclick,1,0,204,261
-,query_selector,,xui,,tabhost1,,label_id,,label_patent,,label_date,,label_start,,label_end,,label_time,,label_pay
+main,parked_list_click,0,1,413,433
+,query_selector,,sqlite,,tables_db,,parked_listview,,label_main,,flag
+,query_selector,,flag
+
+main,parked_listview_itemclick,1,0,209,269
+,flag,,query_selector,,xui,,tabhost1,,label_id,,label_patent,,label_date,,label_start,,label_end,,label_time,,label_pay
 
 
-main,parked_today_click,0,0,378,402
-,query_selector,,sqlite,,tables_db,,parked_listview,,label_main
-,query_selector
+main,parked_today_click,0,0,387,411
+,query_selector,,sqlite,,tables_db,,parked_listview,,label_main,,flag
+,query_selector,,flag
 
 main,process_globals,0,1,15,19
 
 
 
-main,tabhost1_tabchanged,0,0,329,353
+main,tabhost1_tabchanged,0,0,337,361
 ,tabhost1,,label_main,,parked_listview,,label_id,,label_patent,,label_date,,label_start,,label_end,,label_time,,label_pay
 
 

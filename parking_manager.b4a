@@ -62,6 +62,7 @@ Sub Globals
 	Private parked_button As Button
 	Private parked_today As Button
 	Private parked_leave As Button
+	Private parked_list As Button
 	Private query_selector As Cursor
 	
 	' page info
@@ -80,7 +81,10 @@ Sub Globals
 	Private label_pay As Label
 	Private label_id As Label
 	Private info_button_pay As Button
+	
+	Private flag as Boolean
 
+	
 	
 End Sub
 
@@ -218,10 +222,14 @@ Private Sub parked_button_Click
 		Next
 	End If
 	label_main.Text = "List of cars parked"
+	flag = False
 End Sub
 
 Private Sub parked_listview_ItemClick (Position As Int, Value As Object)
 	'ToastMessageShow("You select this: "&CRLF&Value,True)
+	If flag = True Then
+		Return
+	End If
 	query_selector.Position=Position
 	If query_selector.GetString("payment") <> 0 And query_selector.GetString("payment") <> "" Then
 		Return
@@ -392,6 +400,7 @@ Private Sub parked_leave_Click
 		Next
 	End If
 	label_main.Text = "List of cars leave parked today"
+	flag = False
 End Sub
 
 Private Sub parked_today_Click
@@ -416,6 +425,28 @@ Private Sub parked_today_Click
 	End If
 	
 	label_main.Text = "List of cars parked today"
+	flag = False
+	
+End Sub
+
+Private Sub parked_list_Click
+		
+	query_selector=SQLite.ExecQuery("SELECT patent,COUNT(payment) AS cantidad, SUM(payment) AS total FROM "&tables_db.Get(0)&" WHERE payment > 0 GROUP BY patent")
+	parked_listview.clear
+	If query_selector.RowCount>0 Then
+		
+		For i=0 To query_selector.RowCount-1
+			query_selector.Position=i
+			Dim p,c,t As String
+			p=query_selector.GetString("patent")
+			c=query_selector.GetString("cantidad")
+			t=query_selector.GetString("total")
+			parked_listview.AddSingleLine(p&", Count:"&c&", Total:"&t)
+		Next
+	End If
+	
+	label_main.Text = "List of patent"
+	flag = True
 	
 	
 End Sub
